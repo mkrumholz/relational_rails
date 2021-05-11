@@ -6,6 +6,7 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 Garden.destroy_all
+Plot.destroy_all
 
 north_boulder = Garden.create!( name:"North Boulder Community Garden",
                                 water_on: false,
@@ -25,3 +26,19 @@ tuinpark = Garden.create!( name:"Tuinpark Ons Buiten",
                                 created_at: Time.now,
                                 updated_at: Time.now
                               )
+
+the_grove = Plot.create!( name: "The Grove",
+                          available: true,
+                          sun_coverage: :full_shade,
+                          square_ft: 250
+                        )
+lothlorien = Plot.create!( name: "Lothlorien",
+                          available: false,
+                          sun_coverage: :partial_sun,
+                          square_ft: 120
+                        )
+the_hive = Plot.create!( name: "The Hive",
+                          available: true,
+                          sun_coverage: :partial_shade,
+                          square_ft: 100
+                        )
