@@ -4,7 +4,7 @@ class CreateFlowerShop < ActiveRecord::Migration[5.2]
       t.string :name
       t.integer :rating
       t.boolean :same_day_delivery
-      t.string :timestamps
+      t.timestamps
     end
   end
 end
