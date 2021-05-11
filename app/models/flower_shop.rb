@@ -1,0 +1,3 @@
+class FlowerShop < ApplicationRecord
+
+end
