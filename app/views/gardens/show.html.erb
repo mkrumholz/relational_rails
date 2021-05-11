@@ -2,10 +2,11 @@
 
 <h1><%= @garden.name %></h1>
 
+<p>Water on for the season? <%= return "Yes" if @garden.water_on
+  "No"%></p>
+<p>Water access points available: <%= @garden.water_access_pts %></p>
+
 <ul>
-  <li>Water on for the season? <%= return "Yes" if @garden.water_on
-    "No"%></li>
-  <li>Water access points available: <%= @garden.water_access_pts %></li>
   <li>Garden added: <%= @garden.created_at %></li>
-  <li>Last update: <%= @garden.updated_at %></li>
+  <li>Last update:  <%= @garden.updated_at %></li>
 </ul>
