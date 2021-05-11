@@ -1,0 +1,5 @@
+<h1>All Garden Plots</h1>
+
+<% @plots.each do |plot| %>
+  <h3><a href="/plots/<%= plot.id %>"><%= plot.name %></a></h3>
+<% end %>
