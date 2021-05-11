@@ -27,18 +27,28 @@ tuinpark = Garden.create!( name:"Tuinpark Ons Buiten",
                                 updated_at: Time.now
                               )
 
-the_grove = Plot.create!( name: "The Grove",
+north_boulder.plots.create!( name: "The Grove",
                           available: true,
                           sun_coverage: :full_shade,
                           square_ft: 250
                         )
-lothlorien = Plot.create!( name: "Lothlorien",
+north_boulder.plots.create!( name: "The Hive",
+                          available: true,
+                          sun_coverage: :partial_shade,
+                          square_ft: 100
+                        )
+south_boulder.plots.create!( name: "Lothlorien",
                           available: false,
                           sun_coverage: :partial_sun,
                           square_ft: 120
                         )
-the_hive = Plot.create!( name: "The Hive",
+tuinpark.plots.create!( name: "Keukenhof",
+                          available: false,
+                          sun_coverage: :full_sun,
+                          square_ft: 400
+                        )
+tuinpark.plots.create!( name: "Kleine Tuinje",
                           available: true,
                           sun_coverage: :partial_shade,
-                          square_ft: 100
+                          square_ft: 88
                         )
