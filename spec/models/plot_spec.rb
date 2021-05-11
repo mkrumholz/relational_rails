@@ -1,15 +1,15 @@
 require 'rails_helper'
 
-RSpec.describe Garden do
+RSpec.describe Plot do
   describe 'relationships' do
-    it { should have_many :plots }
+    it { should belong_to :garden }
   end
 
   describe 'instance methods' do
     it 'exists' do
-      garden = Garden.new()
+      plot = Plot.new()
 
-      expect(garden).is_a? Garden
+      expect(plot).is_a? Plot
     end
   end
 end

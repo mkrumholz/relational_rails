@@ -246,6 +246,8 @@
           null,
           1,
           1,
+          null,
+          1,
           null
         ]
       },
@@ -258,7 +260,7 @@
       "/Users/frizz/turing/2module/projects/relational_rails/app/models/garden.rb": {
         "lines": [
           1,
-          null,
+          1,
           null
         ]
       },
@@ -268,8 +270,34 @@
           1,
           null
         ]
+      },
+      "/Users/frizz/turing/2module/projects/relational_rails/spec/models/plot_spec.rb": {
+        "lines": [
+          1,
+          null,
+          1,
+          1,
+          2,
+          null,
+          null,
+          1,
+          1,
+          1,
+          null,
+          1,
+          null,
+          null,
+          null
+        ]
+      },
+      "/Users/frizz/turing/2module/projects/relational_rails/app/models/plot.rb": {
+        "lines": [
+          1,
+          1,
+          null
+        ]
       }
     },
-    "timestamp": 1620755153
+    "timestamp": 1620774155
   }
 }
