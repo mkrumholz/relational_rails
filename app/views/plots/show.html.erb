@@ -1,0 +1,13 @@
+<a href='/'>Home</a><a href="/plots">All Plots</a>
+
+<h1><%= @plot.name %></h1>
+
+<p>Currently available? <%= return "Yes" if @plot.available
+  "No"%></p>
+<p>Sun coverage: <%= @plot.sun_coverage.to_s %></p>
+<p>Total area: <%= @plot.square_ft %> sq. ft.</p>
+
+<ul>
+  <li>Plot added: <%= @plot.created_at %></li>
+  <li>Last update:  <%= @plot.updated_at %></li>
+</ul>
