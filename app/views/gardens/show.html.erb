@@ -2,8 +2,7 @@
 
 <h1><%= @garden.name %></h1>
 
-<p>Water on for the season? <%= return "Yes" if @garden.water_on
-  "No"%></p>
+<p>Water on for the season? <%= @garden.water_on_text %></p>
 <p>Water access points available: <%= @garden.water_access_pts %></p>
 
 <ul>
