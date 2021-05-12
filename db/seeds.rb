@@ -7,6 +7,7 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 Garden.destroy_all
 Plot.destroy_all
+FlowerShop.destroy_all
 
 north_boulder = Garden.create!( name:"North Boulder Community Garden",
                                 water_on: false,
@@ -52,3 +53,22 @@ tuinpark.plots.create!( name: "Kleine Tuinje",
                           sun_coverage: :partial_shade,
                           square_ft: 88
                         )
+
+mikes_flowers = FlowerShop.create!( name:"Mikes Flower shop",
+                                    rating: 3,
+                                    same_day_delivery: false,
+                                    created_at: Time.now,
+                                    updated_at: Time.now
+                                  )
+floral_designs = FlowerShop.create!( name:"Floral Designs",
+                                    rating: 4,
+                                    same_day_delivery: true,
+                                    created_at: Time.now,
+                                    updated_at: Time.now
+                              )
+flower_depot = FlowerShop.create!( name:"Flower Depot",
+                                    rating: 5,
+                                    same_day_delivery: true,
+                                    created_at: Time.now,
+                                    updated_at: Time.now
+                              )

@@ -7,4 +7,6 @@ Rails.application.routes.draw do
 
   get '/plots', to: 'plots#index'
   get '/plots/:id', to: 'plots#show'
+
+  get '/flower_shops',to: 'flower_shops#index'
 end
