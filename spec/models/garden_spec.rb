@@ -6,17 +6,6 @@ RSpec.describe Garden do
   end
 
   describe 'instance methods' do
-    it 'exists' do
-      garden = Garden.create!( name:"North Boulder Community Garden",
-                                      water_on: false,
-                                      water_access_pts: 2,
-                                      created_at: Time.now,
-                                      updated_at: Time.now
-                                    )
-
-      expect(garden).is_a? Garden
-    end
-
     describe '#water_on_text' do
       it 'returns Yes if water is on' do
         garden = Garden.create!( name:"North Boulder Community Garden",
