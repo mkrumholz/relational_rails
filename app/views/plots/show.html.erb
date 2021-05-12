@@ -2,8 +2,7 @@
 
 <h1><%= @plot.name %></h1>
 
-<p>Currently available? <%= return "Yes" if @plot.available
-  "No"%></p>
+<p>Currently available? <%= @plot.available_text %></p>
 <p>Sun coverage: <%= @plot.sun_coverage.to_s %></p>
 <p>Total area: <%= @plot.square_ft %> sq. ft.</p>
 
