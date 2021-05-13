@@ -4,5 +4,6 @@ class FlowerShopsController < ApplicationController
   end
 
   def show
+    @flower_shops = FlowerShop.find(params[:id])
   end
 end
