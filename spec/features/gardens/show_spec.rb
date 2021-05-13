@@ -25,25 +25,19 @@ RSpec.describe 'gardens index' do
   it 'says Yes if water is on' do
     visit "/gardens/#{@tuinpark.id}"
 
-    within "p#water-on-#{@tuinpark.id}" do
-      expect(page).to have_content("Water on for the season? Yes")
-    end
+    expect(page).to have_content("Water on for the season? Yes")
   end
 
   it 'says No if water is not on' do
     visit "/gardens/#{@north_boulder.id}"
 
-    within "p#water-on-#{@north_boulder.id}" do
-      expect(page).to have_content("Water on for the season? No")
-    end
+    expect(page).to have_content("Water on for the season? No")
   end
 
   it 'displays num of water access points' do
     visit "/gardens/#{@north_boulder.id}"
 
-    within "p#access-#{@north_boulder.id}" do
-      expect(page).to have_content("Water access points available: 2")
-    end
+    expect(page).to have_content("Water access points available: 2")
   end
 
   it 'displays created at & updated at timestamps' do
