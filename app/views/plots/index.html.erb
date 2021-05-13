@@ -1,5 +1,10 @@
 <h1>All Garden Plots</h1>
 
 <% @plots.each do |plot| %>
-  <h3><a href="/plots/<%= plot.id %>"><%= plot.name %></a></h3>
+  <div id="plot-<%= plot.id %>">
+    <h3><a href="/plots/<%= plot.id %>"><%= plot.name %></a></h3>
+    <p>Currently available? <%= plot.available_text %></p>
+    <p>Sun coverage: <%= plot.sun_coverage_text %></p>
+    <p>Total area: <%= plot.square_ft %>ft<sup>2</sup></p>
+  </div>
 <% end %>
