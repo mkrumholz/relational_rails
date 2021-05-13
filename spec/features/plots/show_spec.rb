@@ -19,25 +19,10 @@ RSpec.describe 'gardens index' do
                                                 sun_coverage: :full_shade,
                                                 square_ft: 250
                                               )
-    @hive          =  @north_boulder.plots.create!( name: "The Hive",
-                                                available: true,
-                                                sun_coverage: :partial_shade,
-                                                square_ft: 100
-                                              )
-    @lothlorien    = @south_boulder.plots.create!( name: "Lothlorien",
-                                                available: false,
-                                                sun_coverage: :partial_sun,
-                                                square_ft: 120
-                                              )
     @keukenhof     = @tuinpark.plots.create!( name: "Keukenhof",
                                                 available: false,
                                                 sun_coverage: :full_sun,
                                                 square_ft: 400
-                                              )
-    @kt            = @tuinpark.plots.create!( name: "Kleine Tuinje",
-                                                available: true,
-                                                sun_coverage: :partial_shade,
-                                                square_ft: 88
                                               )
   end
 
@@ -65,8 +50,25 @@ RSpec.describe 'gardens index' do
     expect(page).to have_content("Sun coverage: Full Shade")
   end
 
-  it 'displays the total plot area'
+  it 'displays the total plot area' do
+    visit "/plots/#{@grove.id}"
 
-  it 'displays created at & updated at timestamps'
+    # expect(page).to have_content("Total area: 250ft\u00B2")
+    expect(page).to have_content("Total area: 250ft2")
+  end
+
+  it 'displays created at & updated at timestamps' do
+    new_plot = @tuinpark.plots.create!( name: "Kleine Tuinje",
+                                        available: true,
+                                        sun_coverage: :partial_shade,
+                                        square_ft: 88,
+                                        created_at: Time.parse("2021-01-01"),
+                                        updated_at: Time.parse("2021-02-01")
+                                      )
+    visit "/plots/#{new_plot.id}"
+
+    expect(page).to have_content("Plot added: 2021-01-01 07:00:00 UTC")
+    expect(page).to have_content("Last update: 2021-02-01 07:00:00 UTC")
+  end
 
 end
