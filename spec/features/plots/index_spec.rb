@@ -45,7 +45,9 @@ RSpec.describe 'gardens index' do
     visit '/plots'
 
     expect(page).to have_content(@grove.name)
+    expect(page).to have_content(@hive.name)
     expect(page).to have_content(@lothlorien.name)
+    expect(page).to have_content(@keukenhof.name)
     expect(page).to have_content(@kt.name)
   end
 
