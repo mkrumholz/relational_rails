@@ -1,7 +1,7 @@
 <h1><%= @garden.name %></h1>
 
-<p>Water on for the season? <%= @garden.water_on_text %></p>
-<p>Water access points available: <%= @garden.water_access_pts %></p>
+<p id="water-on-<%= @garden.id %>">Water on for the season? <%= @garden.water_on_text %></p>
+<p id="access-<%= @garden.id %>">Water access points available: <%= @garden.water_access_pts %></p>
 
 <ul>
   <li>Garden added: <%= @garden.created_at %></li>
