@@ -5,4 +5,8 @@ class Plot < ApplicationRecord
     return "Yes" if available
     "No"
   end
+
+  def sun_coverage_text
+    sun_coverage.split('_').map {|w| w.capitalize}.join(' ')
+  end
 end
