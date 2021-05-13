@@ -20,7 +20,7 @@ RSpec.describe "flower shops show page", type: :feature do
     visit "/flower_shops/#{@mikes_flowers.id}"
 
     expect(page).to have_content(@mikes_flowers.name)
-    expect(page).to have_content(@mikes_flowers.rating)
-    expect(page).to have_content(@mikes_flowers.same_day_delivery)
+    expect(page).to have_content("Shop Rating: 3")
+    expect(page).to have_content("Same Day Delivery: false")
   end
 end
