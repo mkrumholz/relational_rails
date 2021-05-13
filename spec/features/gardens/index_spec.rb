@@ -24,14 +24,6 @@ RSpec.describe 'gardens index' do
     expect(page).to have_content(@tuinpark.name)
   end
 
-  it 'has a link to the home page' do
-    visit '/gardens'
-
-    click_on "Home"
-
-    expect(current_path).to eq '/'
-  end
-
   it 'links to each garden show page' do
     visit '/gardens'
 
