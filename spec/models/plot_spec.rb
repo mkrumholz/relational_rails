@@ -9,13 +9,11 @@ RSpec.describe Plot do
     before :each do
       @garden = Garden.create!( name:"North Boulder Community Garden",
                                       water_on: false,
-                                      water_access_pts: 2,
-                                      created_at: Time.now,
-                                      updated_at: Time.now
+                                      water_access_pts: 2
                                     )
       @plot1 = @garden.plots.create!(  name: "The Grove",
                             available: true,
-                            sun_coverage: :full_shade,
+                            sun_coverage: :partial_shade,
                             square_ft: 250
                           )
       @plot2 = @garden.plots.create!(  name: "The Hive",
@@ -35,8 +33,14 @@ RSpec.describe Plot do
       end
     end
 
-    # describe '#sun_coverage_text' do
-    #
-    # end
+    describe '#sun_coverage_text' do
+      it 'returns Full Sun for full_sun coverage' do
+        expect(@plot2.sun_coverage_text).to eq "Full Sun"
+      end
+
+      it 'returns Partial Shade for partial_shade coverage' do
+        expect(@plot1.sun_coverage_text).to eq "Partial Shade"
+      end
+    end
   end
 end
