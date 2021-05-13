@@ -58,4 +58,37 @@ RSpec.describe 'gardens index' do
 
     expect(current_path).to eq("/plots/#{@grove.id}")
   end
+
+  it 'displays plot availability when yes' do
+    visit '/plots'
+
+    within "div#plot-#{@grove.id}" do
+      expect(page).to have_content("Currently available? Yes")
+    end
+  end
+
+  it 'displays plot availability when no' do
+    visit '/plots'
+
+    within "div#plot-#{@lothlorien.id}" do
+      expect(page).to have_content("Currently available? No")
+    end
+  end
+
+  it 'displays plot sun coverage' do
+    visit '/plots'
+
+    within "div#plot-#{@grove.id}" do
+      expect(page).to have_content("Sun coverage: Full Shade")
+    end
+  end
+
+  it 'displays plot area' do
+    visit '/plots'
+
+    within "div#plot-#{@grove.id}" do
+      expect(page).to have_content("Total area: 250ft2")
+    end
+  end
+
 end
