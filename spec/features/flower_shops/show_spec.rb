@@ -18,7 +18,6 @@ RSpec.describe "flower shops show page", type: :feature do
 
   it "displays the flower shop and its attributes" do
     visit "/flower_shops/#{@mikes_flowers.id}"
-    save_and_open_page
 
     expect(page).to have_content(@mikes_flowers.name)
     expect(page).to have_content(@mikes_flowers.rating)
