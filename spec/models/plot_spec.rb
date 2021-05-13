@@ -6,7 +6,6 @@ RSpec.describe Plot do
   end
 
   describe 'instance methods' do
-    it 'exists' do
     describe '#available_text' do
       it 'returns Yes if plot is available' do
         garden = Garden.create!( name:"North Boulder Community Garden",
