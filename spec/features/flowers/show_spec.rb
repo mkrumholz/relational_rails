@@ -20,7 +20,7 @@ RSpec.describe 'flowers index page' do
     visit "/flowers/#{@flower1.id}"
 
     expect(page).to have_content(@flower1.species)
-    expect(page).to have_content("Shelf Life: 5 Days")
-    expect(page).to have_content("In Stock: true")
+    expect(page).to have_content("Shelf Life: 3 Days")
+    expect(page).to have_content("In Stock: false")
   end
 end
