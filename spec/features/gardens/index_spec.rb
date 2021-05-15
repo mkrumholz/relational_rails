@@ -29,9 +29,9 @@ RSpec.describe 'gardens index' do
   it 'shows all of the garden names in order of date created' do
     visit '/gardens'
 
-    # expect(page).to have_content(@north_boulder.name)
-    # expect(page).to have_content(@south_boulder.name)
-    # expect(page).to have_content(@tuinpark.name)
+    expect(page).to have_content(@north_boulder.name)
+    expect(page).to have_content(@south_boulder.name)
+    expect(page).to have_content(@tuinpark.name)
     expect(@tuinpark.name).to appear_before(@north_boulder.name)
     expect(@north_boulder.name).to appear_before(@south_boulder.name)
   end
