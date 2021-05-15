@@ -53,8 +53,7 @@ RSpec.describe 'gardens index' do
   it 'displays the total plot area' do
     visit "/plots/#{@grove.id}"
 
-    # expect(page).to have_content("Total area: 250ft\u00B2")
-    expect(page).to have_content("Total area: 250ft2")
+    expect(page).to have_content("Total area: 250ft\u00B2")
   end
 
   it 'displays created at & updated at timestamps' do
