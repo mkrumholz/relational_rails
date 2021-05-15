@@ -14,10 +14,20 @@ RSpec.describe 'gardens index' do
                                     water_on: false,
                                     water_access_pts: 3
                                   )
-    @tuinpark = Garden.create!( name:"Tuinpark Ons Buiten",
+    @tuinpark      = Garden.create!( name:"Tuinpark Ons Buiten",
                                     water_on: true,
                                     water_access_pts: 4
                                   )
+    @grove         = @north_boulder.plots.create!( name: "The Grove",
+                                                available: true,
+                                                sun_coverage: :full_shade,
+                                                square_ft: 250
+                                              )
+    @hive          =  @north_boulder.plots.create!( name: "The Hive",
+                                                available: true,
+                                                sun_coverage: :partial_shade,
+                                                square_ft: 100
+                                              )
   end
 
   it 'displays the garden name' do
