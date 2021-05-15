@@ -1,3 +1,7 @@
+<h1>North Boulder Community Garden</h1>
+
+<h2>All Plots</h2>
+
 <% @plots.each do |plot| %>
   <div id="plot-<%= plot.id %>">
     <h3><a href="/plots/<%= plot.id %>"><%= plot.name %></a></h3>
