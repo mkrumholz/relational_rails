@@ -3,7 +3,7 @@
 <h2>All Flowers</h2>
 
 <% @flowers.each do |flower| %>
-    <%= flower.species %></a></h3>
+    <h3><a href="/flowers/<%= flower.id %>"><%= flower.species %></a></h3>
     <p>Shelf Life: <%= flower.shelf_life %> Days</p>
     <p>In Stock: <%= flower.in_stock %></p>
 <% end %>

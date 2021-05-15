@@ -14,7 +14,7 @@ RSpec.describe 'flower shop flowers index' do
                                         shelf_life: 4,
                                         in_stock: true
                                       )
-    @flowe3        =  @mikes_flowers.flowers.create!( species:"Tulip",
+    @flower3        =  @mikes_flowers.flowers.create!( species:"Tulip",
                                         shelf_life: 6,
                                         in_stock: true
                                       )
@@ -25,4 +25,13 @@ RSpec.describe 'flower shop flowers index' do
 
     expect(page).to have_content(@mikes_flowers.name)
   end
+
+  it 'links to each flowers show page' do
+    visit "/flower_shops/#{@mikes_flowers.id}/flowers"
+
+    click_on "Rose"
+
+    expect(current_path).to eq("/flowers/#{@flower1.id}")
+  end
+
 end
