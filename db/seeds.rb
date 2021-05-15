@@ -63,3 +63,24 @@ flower_depot = FlowerShop.create!( name:"Flower Depot",
                                     rating: 5,
                                     same_day_delivery: true
                               )
+
+mikes_flowers.flowers.create!( species:"Rose",
+                                    shelf_life: 5,
+                                    in_stock: false
+                                  )
+mikes_flowers.flowers.create!( species:"Sunflower",
+                                    shelf_life: 6,
+                                    in_stock: true
+                                  )
+floral_designs.flowers.create!( species:"Tulip",
+                                    shelf_life: 3,
+                                    in_stock: true
+                                  )
+flower_depot.flowers.create!( species:"Carnation",
+                                    shelf_life: 7,
+                                    in_stock: true
+                                  )
+flower_depot.flowers.create!( species:"Rose",
+                                    shelf_life: 5,
+                                    in_stock: true
+                                  )
