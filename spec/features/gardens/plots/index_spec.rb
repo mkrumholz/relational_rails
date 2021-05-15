@@ -23,15 +23,23 @@ RSpec.describe 'garden plots index' do
                                               )
   end
 
-  it 'displays all plots for a garden' do
-    visit "/gardens/#{garden.id}/plots"
+  it 'displays all plot names for a garden' do
+    visit "/gardens/#{@north_boulder.id}/plots"
 
     expect(page).to have_content(@grove.name)
     expect(page).to have_content(@hive.name)
   end
 
+  it 'links to each plots show page' do
+    visit "/gardens/#{@north_boulder.id}/plots"
+
+    click_on "The Grove"
+
+    expect(current_path).to eq("/plots/#{@grove.id}")
+  end
+
   it 'displays plot availability when yes' do
-    visit '/plots'
+    visit "/gardens/#{@north_boulder.id}/plots"
 
     within "div#plot-#{@grove.id}" do
       expect(page).to have_content("Currently available? Yes")
@@ -39,7 +47,7 @@ RSpec.describe 'garden plots index' do
   end
 
   it 'displays plot availability when no' do
-    visit '/plots'
+    visit "/gardens/#{@north_boulder.id}/plots"
 
     within "div#plot-#{@hive.id}" do
       expect(page).to have_content("Currently available? No")
@@ -47,7 +55,7 @@ RSpec.describe 'garden plots index' do
   end
 
   it 'displays plot sun coverage' do
-    visit '/plots'
+    visit "/gardens/#{@north_boulder.id}/plots"
 
     within "div#plot-#{@grove.id}" do
       expect(page).to have_content("Sun coverage: Full Shade")
@@ -59,7 +67,7 @@ RSpec.describe 'garden plots index' do
   end
 
   it 'displays plot area' do
-    visit '/plots'
+    visit "/gardens/#{@north_boulder.id}/plots"
 
     within "div#plot-#{@grove.id}" do
       expect(page).to have_content("Total area: 250ft\u00B2")
