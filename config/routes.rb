@@ -3,8 +3,8 @@ Rails.application.routes.draw do
   get '/', to: 'welcome#index'
 
   get '/gardens', to: 'gardens#index'
-  get '/gardens/:id', to: 'gardens#show'
   get 'gardens/new', to: 'gardens#new'
+  get '/gardens/:id', to: 'gardens#show'
 
   get '/gardens/:id/plots', to: 'garden_plots#index'
 
