@@ -1,8 +1,3 @@
-# As a visitor
-# When I visit '/parents/:parent_id/child_table_name'
-# Then I see each Child that is associated with
-# that Parent with each Child's attributes:
-
 require 'rails_helper'
 
 RSpec.describe 'garden plots index' do
