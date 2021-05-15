@@ -1,5 +1,5 @@
 <h1>The Flower Shops</h1>
 
 <% @flower_shops.each do |flower_shop| %>
-  <h3><%= flower_shop.name %></h3>
+  <h3><a href="/flower_shops/<%= flower_shop.id %>"><%= flower_shop.name %></h3>
 <% end %>
