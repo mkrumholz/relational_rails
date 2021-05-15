@@ -25,8 +25,8 @@ RSpec.describe 'gardens index' do
     expect(page).to have_content(@north_boulder.name)
     expect(page).to have_content(@south_boulder.name)
     expect(page).to have_content(@tuinpark.name)
-    expect(@tuinpark.name).to appear_before(@north_boulder.name)
-    expect(@north_boulder.name).to appear_before(@south_boulder.name)
+    expect(@south_boulder.name).to appear_before(@north_boulder.name)
+    expect(@north_boulder.name).to appear_before(@tuinpark.name)
   end
 
   it 'links to each garden show page' do
