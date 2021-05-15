@@ -51,7 +51,7 @@ tuinpark.plots.create!( name: "Kleine Tuinje",
                           square_ft: 88
                         )
 
-mikes_flowers = FlowerShop.create!( name:"Mikes Flower shop",
+mikes_flowers = FlowerShop.create!( name:"Mikes Flower Shop",
                                     rating: 3,
                                     same_day_delivery: false
                                   )

@@ -1,0 +1,9 @@
+<h1>Mikes Flower Shop</h1>
+
+<h2>All Flowers</h2>
+
+<% @flowers.each do |flower| %>
+    <%= flower.species %></a></h3>
+    <p>Shelf Life: <%= flower.shelf_life %> Days</p>
+    <p>In Stock: <%= flower.in_stock %></p>
+<% end %>

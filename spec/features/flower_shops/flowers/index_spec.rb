@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe 'flower shop flowers index' do
   before :each do
-    @mikes_flowers = FlowerShop.create!( name:"Mikes Flower shop",
+    @mikes_flowers = FlowerShop.create!( name:"Mikes Flower Shop",
                                         rating: 3,
                                         same_day_delivery: false
                                       )
