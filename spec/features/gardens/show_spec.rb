@@ -1,3 +1,7 @@
+# As a visitor
+# When I visit a parent's show page
+# I see a count of the number of children associated with this parent
+
 require 'rails_helper'
 
 RSpec.describe 'gardens index' do
@@ -60,5 +64,11 @@ RSpec.describe 'gardens index' do
     click_link('See all plots')
 
     expect(current_path).to eq("/gardens/#{@north_boulder.id}/plots")
+  end
+
+  it 'shows the total number of plots in the garden' do
+    visit "/gardens/#{@north_boulder.id}"
+
+    expect(page).to have_content("Total plots: 2")
   end
 end
