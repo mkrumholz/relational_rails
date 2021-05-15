@@ -1,5 +1,8 @@
 <h1>Our Community Gardens</h1>
 
 <% @gardens.each do |garden| %>
-  <h3><a href="/gardens/<%= garden.id %>"><%= garden.name %></a></h3>
+  <div id="garden-<%= garden.id %>">
+    <aside><%= garden.created_at %></aside>
+    <h3><a href="/gardens/<%= garden.id %>"><%= garden.name %></a></h3>
+  </div>
 <% end %>

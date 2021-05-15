@@ -1,6 +1,6 @@
 class GardensController < ApplicationController
   def index
-    @gardens = Garden.all
+    @gardens = Garden.order(created_at: :desc)
   end
 
   def show

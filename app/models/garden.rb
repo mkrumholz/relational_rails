@@ -5,4 +5,8 @@ class Garden < ApplicationRecord
     return "Yes" if water_on
     "No"
   end
+
+  def plot_count
+    plots.count
+  end
 end
