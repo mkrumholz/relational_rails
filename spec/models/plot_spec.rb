@@ -11,16 +11,16 @@ RSpec.describe Plot do
                                       water_on: false,
                                       water_access_pts: 2
                                     )
-      @plot1 = @garden.plots.create!(  name: "The Grove",
-                            available: true,
-                            sun_coverage: :partial_shade,
-                            square_ft: 250
-                          )
-      @plot2 = @garden.plots.create!(  name: "The Hive",
-                            available: false,
-                            sun_coverage: :full_sun,
-                            square_ft: 300
-                          )
+      @plot1 = @garden.plots.create!( name: "The Grove",
+                                      available: true,
+                                      sun_coverage: :partial_shade,
+                                      square_ft: 250
+                                    )
+      @plot2 = @garden.plots.create!( name: "The Hive",
+                                      available: false,
+                                      sun_coverage: :full_sun,
+                                      square_ft: 300
+                                    )
     end
 
     describe '#available_text' do
