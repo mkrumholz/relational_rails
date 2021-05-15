@@ -36,4 +36,11 @@ RSpec.describe "flower shops index page", type: :feature do
 
     expect(current_path).to eq("/flower_shops/#{@mikes_flowers.id}")
   end
+
+  it 'displays created at timestamps' do
+
+    visit visit "/flower_shops"
+
+    expect(page).to have_content("Established: 2021-05-09")
+  end
 end

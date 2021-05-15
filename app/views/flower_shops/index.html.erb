@@ -2,7 +2,7 @@
 
 <% @flower_shops.each do |flower_shop| %>
   <div id="flower shop-<%= flower_shop.id %>">
-    <aside><%= flower_shop.created_at %></aside>
-    <h3><a href="/flower_shops/<%= flower_shop.id %>"><%= flower_shop.name %></h3>
+
+    <h3><a href="/flower_shops/<%= flower_shop.id %>"><%= flower_shop.name %> Established: <%= flower_shop.created_at %> </h3>
   </div>
 <% end %>

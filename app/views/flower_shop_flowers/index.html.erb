@@ -4,6 +4,8 @@
 
 <% @flowers.each do |flower| %>
     <h3><a href="/flowers/<%= flower.id %>"><%= flower.species %></a></h3>
+
     <p>Shelf Life: <%= flower.shelf_life %> Days</p>
     <p>In Stock: <%= flower.in_stock %></p>
+    <p>Established: <%= flower.created_at %></p>
 <% end %>
