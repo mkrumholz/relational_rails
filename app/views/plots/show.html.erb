@@ -1,8 +1,8 @@
 <h1><%= @plot.name %></h1>
 
 <p>Currently available? <%= @plot.available_text %></p>
-<p>Sun coverage: <%= @plot.sun_coverage.to_s %></p>
-<p>Total area: <%= @plot.square_ft %> sq. ft.</p>
+<p>Sun coverage: <%= @plot.sun_coverage_text %></p>
+<p>Total area: <%= @plot.square_ft %>ft<%= "\u00B2" %></p>
 
 <ul>
   <li>Plot added: <%= @plot.created_at %></li>
