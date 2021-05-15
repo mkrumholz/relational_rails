@@ -23,6 +23,12 @@ RSpec.describe 'garden plots index' do
                                               )
   end
 
+  it 'displays the name of the garden' do
+    visit "/gardens/#{@north_boulder.id}/plots"
+
+    expect(page).to have_content(@north_boulder.name)
+  end
+
   it 'displays all plot names for a garden' do
     visit "/gardens/#{@north_boulder.id}/plots"
 
