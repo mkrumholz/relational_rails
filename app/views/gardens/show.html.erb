@@ -1,5 +1,6 @@
 <h1><%= @garden.name %></h1>
 
+<p>Total plots: <%= @garden.plot_count %></p>
 <p>Water on for the season? <%= @garden.water_on_text %></p>
 <p>Water access points available: <%= @garden.water_access_pts %></p>
 
@@ -7,3 +8,5 @@
   <li>Garden added: <%= @garden.created_at %></li>
   <li>Last update:  <%= @garden.updated_at %></li>
 </ul>
+
+<button><a href="/gardens/<%= @garden.id %>/plots">See all plots</a></button>

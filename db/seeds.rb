@@ -11,15 +11,18 @@ FlowerShop.destroy_all
 
 north_boulder = Garden.create!( name:"North Boulder Community Garden",
                                 water_on: false,
-                                water_access_pts: 2
+                                water_access_pts: 2,
+                                created_at: Time.parse('2021-02-01')
                               )
 south_boulder = Garden.create!( name:"South Boulder Community Garden",
                                 water_on: false,
-                                water_access_pts: 3
+                                water_access_pts: 3,
+                                created_at: Time.parse('2021-04-01')
                               )
 tuinpark = Garden.create!( name:"Tuinpark Ons Buiten",
                                 water_on: true,
-                                water_access_pts: 4
+                                water_access_pts: 4,
+                                created_at: Time.parse('2021-01-01')
                               )
 
 north_boulder.plots.create!( name: "The Grove",

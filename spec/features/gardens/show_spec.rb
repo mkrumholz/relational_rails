@@ -1,3 +1,7 @@
+# As a visitor
+# When I visit a parent's show page
+# I see a count of the number of children associated with this parent
+
 require 'rails_helper'
 
 RSpec.describe 'gardens index' do
@@ -10,10 +14,20 @@ RSpec.describe 'gardens index' do
                                     water_on: false,
                                     water_access_pts: 3
                                   )
-    @tuinpark = Garden.create!( name:"Tuinpark Ons Buiten",
+    @tuinpark      = Garden.create!( name:"Tuinpark Ons Buiten",
                                     water_on: true,
                                     water_access_pts: 4
                                   )
+    @grove         = @north_boulder.plots.create!( name: "The Grove",
+                                                available: true,
+                                                sun_coverage: :full_shade,
+                                                square_ft: 250
+                                              )
+    @hive          =  @north_boulder.plots.create!( name: "The Hive",
+                                                available: true,
+                                                sun_coverage: :partial_shade,
+                                                square_ft: 100
+                                              )
   end
 
   it 'displays the garden name' do
@@ -52,5 +66,19 @@ RSpec.describe 'gardens index' do
 
     expect(page).to have_content("Garden added: 2021-01-01 07:00:00 UTC")
     expect(page).to have_content("Last update: 2021-02-01 07:00:00 UTC")
+  end
+
+  it 'has a button to see all garden plots for garden' do
+    visit "/gardens/#{@north_boulder.id}"
+
+    click_link('See all plots')
+
+    expect(current_path).to eq("/gardens/#{@north_boulder.id}/plots")
+  end
+
+  it 'shows the total number of plots in the garden' do
+    visit "/gardens/#{@north_boulder.id}"
+
+    expect(page).to have_content("Total plots: 2")
   end
 end
