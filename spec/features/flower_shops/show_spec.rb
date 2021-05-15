@@ -14,6 +14,14 @@ RSpec.describe "flower shops show page", type: :feature do
                                         rating: 5,
                                         same_day_delivery: true
                                   )
+    @flower1     = @mikes_flowers.flowers.create!( species:"Rose",
+                                        shelf_life: 6,
+                                        in_stock: false
+                                      )
+    @flower2     =  @mikes_flowers.flowers.create!( species:"Sunflower",
+                                        shelf_life: 4,
+                                        in_stock: true
+                                      )
   end
 
   it "displays the flower shop and its attributes" do
@@ -22,5 +30,11 @@ RSpec.describe "flower shops show page", type: :feature do
     expect(page).to have_content(@mikes_flowers.name)
     expect(page).to have_content("Shop Rating: 3")
     expect(page).to have_content("Same Day Delivery: false")
+  end
+
+  it 'shows the total number of flowers in a flower shop' do
+    visit "/flower_shops/#{@mikes_flowers.id}"
+
+    expect(page).to have_content("Total Flowers: 2")
   end
 end
