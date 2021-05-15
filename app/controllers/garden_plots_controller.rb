@@ -1,6 +1,5 @@
 class GardenPlotsController < ApplicationController
   def index
-    binding.pry
-    @plots = Plot.where()
+    @plots = Plot.where(garden_id: params[:id])
   end
 end
