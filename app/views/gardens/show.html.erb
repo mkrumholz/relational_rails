@@ -7,3 +7,5 @@
   <li>Garden added: <%= @garden.created_at %></li>
   <li>Last update:  <%= @garden.updated_at %></li>
 </ul>
+
+<button><a href="/gardens/<%= @garden.id %>/plots">See all plots</a></button>
