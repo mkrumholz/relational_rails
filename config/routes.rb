@@ -13,6 +13,8 @@ Rails.application.routes.draw do
   get '/flower_shops',to: 'flower_shops#index'
   get '/flower_shops/:id', to: 'flower_shops#show'
 
+  get '/flower_shops/:id/flowers', to: 'flower_shop_flowers#index'
+
   get '/flowers', to: 'flowers#index'
   get '/flowers/:id', to: 'flowers#show'
 end
