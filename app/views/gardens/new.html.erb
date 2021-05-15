@@ -1,9 +1,9 @@
 <%= form_with url: '/gardens', method: :post, local: true do |form| %>
   <%= form.label :name %>
   <%= form.text_field :name %>
-  <%= form.label 'Water on?' %>
+  <%= form.label :water_on, 'Water on?' %>
   <%= form.text_field :water_on %>
-  <%= form.label "Water access points" %>
+  <%= form.label :water_access_pts, "Water access points" %>
   <%= form.text_field :water_access_pts %>
   <%= form.submit 'Create' %>
 <% end %>

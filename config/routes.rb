@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   get '/gardens', to: 'gardens#index'
   get 'gardens/new', to: 'gardens#new'
   get '/gardens/:id', to: 'gardens#show'
+  post 'gardens', to: 'gardens#create'
 
   get '/gardens/:id/plots', to: 'garden_plots#index'
 

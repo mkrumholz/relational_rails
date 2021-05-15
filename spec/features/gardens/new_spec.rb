@@ -20,8 +20,9 @@ RSpec.describe 'create garden' do
     expect(current_path).to eq('/gardens/new')
 
     fill_in 'Name', with: 'New Community Garden'
-    fill_in 'Water on?', with: 'No'
+    fill_in 'Water on?', with: false
     fill_in 'Water access points', with: 3
+    click_on 'Create'
 
     expect(current_path).to eq('/gardens')
     expect(page).to have_content('New Community Garden')

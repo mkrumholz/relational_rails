@@ -40,7 +40,7 @@ RSpec.describe 'gardens index' do
   it 'has a link to create a new garden' do
     visit '/gardens'
 
-    click_button 'Create new garden'
+    click_link 'Create new garden'
 
     expect(current_path).to eq('/gardens/new')
   end
