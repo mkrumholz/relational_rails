@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe "flower shops index page", type: :feature do
   before :each do
-    @mikes_flowers = FlowerShop.create!( name:"Mikes Flower shop",
+    @mikes_flowers = FlowerShop.create!( name:"Mikes Flower Shop",
                                         rating: 3,
                                         same_day_delivery: false
                                       )
@@ -22,5 +22,13 @@ RSpec.describe "flower shops index page", type: :feature do
     expect(page).to have_content(@mikes_flowers.name)
     expect(page).to have_content(@floral_designs.name)
     expect(page).to have_content(@flower_depot.name)
+  end
+
+  it 'links to each flower shops show page' do
+    visit '/flower_shops'
+
+    click_on 'Mikes Flower Shop'
+
+    expect(current_path).to eq("/flower_shops/#{@mikes_flowers.id}")
   end
 end
