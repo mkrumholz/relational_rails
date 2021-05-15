@@ -8,6 +8,7 @@
 Plot.destroy_all
 Garden.destroy_all
 FlowerShop.destroy_all
+Flowers.destroy_all
 
 north_boulder = Garden.create!( name:"North Boulder Community Garden",
                                 water_on: false,
@@ -80,7 +81,7 @@ flower_depot.flowers.create!( species:"Carnation",
                                     shelf_life: 7,
                                     in_stock: true
                                   )
-flower_depot.flowers.create!( species:"Rose",
+flower_depot.flowers.create!( species:"Petunia",
                                     shelf_life: 5,
                                     in_stock: true
                                   )
