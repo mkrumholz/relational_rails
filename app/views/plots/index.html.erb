@@ -5,6 +5,6 @@
     <h3><a href="/plots/<%= plot.id %>"><%= plot.name %></a></h3>
     <p>Currently available? <%= plot.available_text %></p>
     <p>Sun coverage: <%= plot.sun_coverage_text %></p>
-    <p>Total area: <%= plot.square_ft %>ft<sup>2</sup></p>
+    <p>Total area: <%= plot.square_ft %>ft<%= "\u00B2" %></p>
   </div>
 <% end %>

@@ -87,8 +87,7 @@ RSpec.describe 'gardens index' do
     visit '/plots'
 
     within "div#plot-#{@grove.id}" do
-      expect(page).to have_content("Total area: 250ft2")
+      expect(page).to have_content("Total area: 250ft\u00B2")
     end
   end
-
 end
