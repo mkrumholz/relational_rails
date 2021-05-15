@@ -4,6 +4,7 @@ Rails.application.routes.draw do
 
   get '/gardens', to: 'gardens#index'
   get '/gardens/:id', to: 'gardens#show'
+  get 'gardens/new', to: 'gardens#new'
 
   get '/gardens/:id/plots', to: 'garden_plots#index'
 
@@ -13,5 +14,5 @@ Rails.application.routes.draw do
   get '/flower_shops',to: 'flower_shops#index'
   get '/flower_shops/:id', to: 'flower_shops#show'
 
-  get '/flowers', to: 'flowers#index' 
+  get '/flowers', to: 'flowers#index'
 end
