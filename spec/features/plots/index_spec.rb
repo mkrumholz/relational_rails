@@ -90,4 +90,8 @@ RSpec.describe 'gardens index' do
       expect(page).to have_content("Total area: 250ft\u00B2")
     end
   end
+
+  it 'has a button to create a new plot' do
+    
+  end
 end
