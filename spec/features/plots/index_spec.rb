@@ -1,7 +1,3 @@
-# As a visitor
-# When I visit the child index
-# Then I only see records where the boolean column is true
-
 require 'rails_helper'
 
 RSpec.describe 'gardens index' do
