@@ -1,5 +1,8 @@
 <h1>The Flower Shops</h1>
 
 <% @flower_shops.each do |flower_shop| %>
-  <h3><a href="/flower_shops/<%= flower_shop.id %>"><%= flower_shop.name %></h3>
+  <div id="flower shop-<%= flower_shop.id %>">
+
+    <h3><a href="/flower_shops/<%= flower_shop.id %>"><%= flower_shop.name %> Established: <%= flower_shop.created_at %> </h3>
+  </div>
 <% end %>

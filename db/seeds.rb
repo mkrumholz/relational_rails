@@ -8,6 +8,7 @@
 Plot.destroy_all
 Garden.destroy_all
 FlowerShop.destroy_all
+Flowers.destroy_all
 
 north_boulder = Garden.create!( name:"North Boulder Community Garden",
                                 water_on: false,
@@ -51,7 +52,7 @@ tuinpark.plots.create!( name: "Kleine Tuinje",
                           square_ft: 88
                         )
 
-mikes_flowers = FlowerShop.create!( name:"Mikes Flower shop",
+mikes_flowers = FlowerShop.create!( name:"Mikes Flower Shop",
                                     rating: 3,
                                     same_day_delivery: false
                                   )
@@ -63,3 +64,24 @@ flower_depot = FlowerShop.create!( name:"Flower Depot",
                                     rating: 5,
                                     same_day_delivery: true
                               )
+
+mikes_flowers.flowers.create!( species:"Rose",
+                                    shelf_life: 5,
+                                    in_stock: false
+                                  )
+mikes_flowers.flowers.create!( species:"Sunflower",
+                                    shelf_life: 6,
+                                    in_stock: true
+                                  )
+floral_designs.flowers.create!( species:"Tulip",
+                                    shelf_life: 3,
+                                    in_stock: true
+                                  )
+flower_depot.flowers.create!( species:"Carnation",
+                                    shelf_life: 7,
+                                    in_stock: true
+                                  )
+flower_depot.flowers.create!( species:"Petunia",
+                                    shelf_life: 5,
+                                    in_stock: true
+                                  )
