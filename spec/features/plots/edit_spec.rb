@@ -22,6 +22,7 @@ RSpec.describe 'update plot' do
                                                 square_ft: 250
                                               )
   end
+
   it 'can update the name of a plot' do
     visit "/plots/#{@grove.id}"
 
