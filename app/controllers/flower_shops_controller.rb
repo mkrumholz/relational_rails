@@ -1,6 +1,6 @@
 class FlowerShopsController < ApplicationController
   def index
-    @flower_shops = FlowerShop.all
+    @flower_shops = FlowerShop.order(created_at: :desc)
   end
 
   def show

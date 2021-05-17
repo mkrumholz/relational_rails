@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe "flower shops show page", type: :feature do
+RSpec.describe 'flowers index page' do
   before :each do
     @mikes_flowers = FlowerShop.create!( name:"Mikes Flower Shop",
                                         rating: 3,
@@ -14,6 +14,7 @@ RSpec.describe "flower shops show page", type: :feature do
                                         rating: 5,
                                         same_day_delivery: true
                                   )
+
     @flower1     = @mikes_flowers.flowers.create!( species:"Rose",
                                         shelf_life: 6,
                                         in_stock: false
@@ -24,17 +25,11 @@ RSpec.describe "flower shops show page", type: :feature do
                                       )
   end
 
-  it "displays the flower shop and its attributes" do
-    visit "/flower_shops/#{@mikes_flowers.id}"
+  it "displays the flower and its attributes" do
+    visit "/flowers/#{@flower1.id}"
 
-    expect(page).to have_content(@mikes_flowers.name)
-    expect(page).to have_content("Shop Rating: 3")
-    expect(page).to have_content("Same Day Delivery: false")
-  end
-
-  it 'shows the total number of flowers in a flower shop' do
-    visit "/flower_shops/#{@mikes_flowers.id}"
-
-    expect(page).to have_content("Total Flowers: 2")
+    expect(page).to have_content(@flower1.species)
+    expect(page).to have_content("Shelf Life: 6 Days")
+    expect(page).to have_content("In Stock: false")
   end
 end
