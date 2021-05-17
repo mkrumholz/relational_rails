@@ -36,4 +36,22 @@ RSpec.describe 'gardens index' do
 
     expect(current_path).to eq("/gardens/#{@north_boulder.id}")
   end
+
+  it 'has buttons to edit each garden' do
+    visit '/gardens'
+
+    within "div#garden-#{@north_boulder.id}" do
+      click_button 'Edit'
+    end
+
+    expect(current_path).to eq("/gardens/#{@north_boulder.id}/edit")
+  end
+
+  it 'has a button to create a new garden' do
+    visit '/gardens'
+
+    click_button 'New garden'
+
+    expect(current_path).to eq('/gardens/new')
+  end
 end

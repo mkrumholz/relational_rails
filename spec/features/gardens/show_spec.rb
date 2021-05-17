@@ -64,14 +64,14 @@ RSpec.describe 'gardens index' do
 
     visit "/gardens/#{new_garden.id}"
 
-    expect(page).to have_content("Garden added: 2021-01-01 07:00:00 UTC")
-    expect(page).to have_content("Last update: 2021-02-01 07:00:00 UTC")
+    expect(page).to have_content("Garden added: 2021-01-01")
+    expect(page).to have_content("Last update: 2021-02-01")
   end
 
   it 'has a button to see all garden plots for garden' do
     visit "/gardens/#{@north_boulder.id}"
 
-    click_link('See all plots')
+    click_button 'See all plots'
 
     expect(current_path).to eq("/gardens/#{@north_boulder.id}/plots")
   end

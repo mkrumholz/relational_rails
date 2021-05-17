@@ -3,7 +3,11 @@ Rails.application.routes.draw do
   get '/', to: 'welcome#index'
 
   get '/gardens', to: 'gardens#index'
+  get '/gardens/new', to: 'gardens#new'
   get '/gardens/:id', to: 'gardens#show'
+  post '/gardens', to: 'gardens#create'
+  get '/gardens/:id/edit', to: 'gardens#edit'
+  patch '/gardens/:id', to: 'gardens#update'
 
   get '/gardens/:id/plots', to: 'garden_plots#index'
 
@@ -15,6 +19,7 @@ Rails.application.routes.draw do
 
   get '/flower_shops/:id/flowers', to: 'flower_shop_flowers#index'
 
+  get '/flowers', to: 'flowers#index'
   get '/flowers', to: 'flowers#index'
   get '/flowers/:id', to: 'flowers#show'
 end
