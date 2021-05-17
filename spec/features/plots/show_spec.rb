@@ -70,4 +70,11 @@ RSpec.describe 'gardens index' do
     expect(page).to have_content("Last update: 2021-02-01 07:00:00 UTC")
   end
 
+  it 'has a button to edit the plot' do
+    visit "/plots/#{@grove.id}"
+
+    click_button 'Edit'
+
+    expect(current_path).to eq("/plots/#{@grove.id}/edit")
+  end
 end

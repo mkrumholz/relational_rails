@@ -91,7 +91,13 @@ RSpec.describe 'gardens index' do
     end
   end
 
-  it 'has a button to create a new plot' do
-    
+  it 'has buttons to edit each plot' do
+    visit "/plots"
+
+    within "div#plot-#{@grove.id}" do
+      click_button 'Edit'
+    end
+
+    expect(current_path).to eq("/plots/#{@grove.id}/edit")
   end
 end

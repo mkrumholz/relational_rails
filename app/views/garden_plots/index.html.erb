@@ -8,6 +8,7 @@
     <p>Currently available? <%= plot.available_text %></p>
     <p>Sun coverage: <%= plot.sun_coverage_text %></p>
     <p>Total area: <%= plot.square_ft %>ft<%= "\u00B2" %></p>
+    <%= button_to 'Edit', "/plots/#{plot.id}/edit", method: :get %>
   </div>
 <% end %>
 
