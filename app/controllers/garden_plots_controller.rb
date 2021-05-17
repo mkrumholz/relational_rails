@@ -17,6 +17,6 @@ class GardenPlotsController < ApplicationController
 
   private
     def plot_params
-      params.permit(:name, :available, :sun_coverage, :square_ft,)
+      params.permit(:name, :available, :sun_coverage, :square_ft)
     end
 end

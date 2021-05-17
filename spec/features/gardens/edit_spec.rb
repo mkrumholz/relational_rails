@@ -35,11 +35,7 @@ RSpec.describe 'update garden' do
   end
 
   it 'can update whether the water is on' do
-    visit "/gardens/#{@north_boulder.id}"
-
-    click_button 'Edit'
-
-    expect(current_path).to eq("/gardens/#{@north_boulder.id}/edit")
+    visit "/gardens/#{@north_boulder.id}/edit"
 
     choose :water_on, option: true
     click_on 'Update'
@@ -51,11 +47,7 @@ RSpec.describe 'update garden' do
   end
 
   it 'can update whether the water is on' do
-    visit "/gardens/#{@north_boulder.id}"
-
-    click_button 'Edit'
-
-    expect(current_path).to eq("/gardens/#{@north_boulder.id}/edit")
+    visit "/gardens/#{@north_boulder.id}/edit"
 
     fill_in 'Water access points', with: 4
     click_on 'Update'

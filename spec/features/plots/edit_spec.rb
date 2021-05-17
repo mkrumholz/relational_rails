@@ -36,9 +36,42 @@ RSpec.describe 'update plot' do
     expect(page).to have_content('The Clover Patch')
   end
 
-  it 'can update whether a plot is available'
+  it 'can update whether a plot is available' do
+    visit "/plots/#{@grove.id}/edit"
 
-  it 'can update the sun coverage of a plot'
+    choose :available, option: false
+    click_button 'Update'
 
-  it 'can update the square footage of a plot'
+    expect(current_path).to eq("/plots/#{@grove.id}")
+    expect(page).to have_content("The Grove")
+    expect(page).to have_content("Currently available? No")
+    expect(page).to have_content("Sun coverage: Full Shade")
+    expect(page).to have_content("Total area: 250ft\u00B2")
+  end
+
+  it 'can update the sun coverage of a plot' do
+    visit "/plots/#{@grove.id}/edit"
+
+    select 'Full sun', from: :sun_coverage
+    click_button 'Update'
+
+    expect(current_path).to eq("/plots/#{@grove.id}")
+    expect(page).to have_content("The Grove")
+    expect(page).to have_content("Currently available? Yes")
+    expect(page).to have_content("Sun coverage: Full Sun")
+    expect(page).to have_content("Total area: 250ft\u00B2")
+  end
+
+  it 'can update the square footage of a plot' do
+    visit "/plots/#{@grove.id}/edit"
+
+    fill_in :square_ft, with: 400
+    click_button 'Update'
+
+    expect(current_path).to eq("/plots/#{@grove.id}")
+    expect(page).to have_content("The Grove")
+    expect(page).to have_content("Currently available? Yes")
+    expect(page).to have_content("Sun coverage: Full Shade")
+    expect(page).to have_content("Total area: 400ft\u00B2")
+  end
 end
