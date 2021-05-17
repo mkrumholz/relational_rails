@@ -4,7 +4,8 @@
   <div id="garden-<%= garden.id %>">
     <aside><%= garden.created_at %></aside>
     <h3><a href="/gardens/<%= garden.id %>"><%= garden.name %></a></h3>
+    <%= button_to 'Edit', "/gardens/#{garden.id}/edit", method: :get %>
   </div>
 <% end %>
 
-<%= link_to 'Create new garden',  "/gardens/new" %>
+<%= button_to 'New garden',  "/gardens/new", method: :get %>

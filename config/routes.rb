@@ -3,9 +3,11 @@ Rails.application.routes.draw do
   get '/', to: 'welcome#index'
 
   get '/gardens', to: 'gardens#index'
-  get 'gardens/new', to: 'gardens#new'
+  get '/gardens/new', to: 'gardens#new'
   get '/gardens/:id', to: 'gardens#show'
-  post 'gardens', to: 'gardens#create'
+  post '/gardens', to: 'gardens#create'
+  get '/gardens/:id/edit', to: 'gardens#edit'
+  patch '/gardens/:id', to: 'gardens#update'
 
   get '/gardens/:id/plots', to: 'garden_plots#index'
 

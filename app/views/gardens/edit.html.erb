@@ -1,0 +1,14 @@
+<h1><%= @garden.name %></h1>
+
+<%= form_with url: "/gardens/#{@garden.id}", method: :patch, local: true do |form| %>
+  <%= form.label :name %>
+  <%= form.text_field :name, value: @garden.name %><br/>
+  <%= form.label :water_on, 'Water on?' %>
+  <%= form.radio_button :water_on, true, checked: @garden.water_on %>
+  <%= form.label :water_on_true, "Yes" %>
+  <%= form.radio_button :water_on, false, checked: !@garden.water_on%>
+  <%= form.label :water_on_false, "No" %><br/>
+  <%= form.label :water_access_pts, "Water access points" %>
+  <%= form.number_field :water_access_pts, in: 1..100, step: 1, value: @garden.water_access_pts %>
+  <%= form.submit 'Update' %>
+<% end %>
