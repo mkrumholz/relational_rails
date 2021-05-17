@@ -28,7 +28,7 @@ RSpec.describe 'create plot for a specific garden' do
 
     fill_in 'Name', with: 'Hippoplotamus'
     choose :available, option: true
-    fill_in 'Sun Coverage', with: "full Sun"
+    select 'Full sun', from: :sun_coverage
     fill_in 'Total area', with: 350
     click_on 'Create'
 
@@ -36,8 +36,8 @@ RSpec.describe 'create plot for a specific garden' do
     within "div#plot-#{@north_boulder.plots.last.id}" do
       expect(page).to have_content('Hippoplotamus')
       expect(page).to have_content("Currently available? Yes")
-      expect(page).to have_content("Sun coverage: Full Shade")
-      expect(page).to have_content("Total area: 250ft\u00B2")
+      expect(page).to have_content("Sun coverage: Full Sun")
+      expect(page).to have_content("Total area: 350ft\u00B2")
     end
   end
 end

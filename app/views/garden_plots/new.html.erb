@@ -1,0 +1,14 @@
+<h1><%= @garden.name %></h1>
+
+<h3>New Plot</h3>
+
+<%= bootstrap_form_with url: "/gardens/#{@garden.id}/plots", method: :post, local: true do |form| %>
+  <%= form.text_field :name %><br/>
+  <%= form.form_group :available, label: { text: "Available?" } do %><br/>
+    <%= form.radio_button :available, true, label: "Yes", inline:true %>
+    <%= form.radio_button :available, false, label: "No", inline:true %>
+  <% end %><br/>
+  <%= form.select :sun_coverage, [['Full shade', :full_shade], ['Partial shade', :partial_shade], ['Partial sun', :partial_sun], ['Full sun', :full_sun]], label: 'Sun coverage' %><br/>
+  <%= form.number_field :square_ft, in: 1..20000, step: 1, label: "Total area (ft\u00B2)", append: "ft\u00B2"%><br/>
+  <%= form.submit 'Create' %>
+<% end %>

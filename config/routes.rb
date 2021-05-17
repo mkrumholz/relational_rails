@@ -10,6 +10,8 @@ Rails.application.routes.draw do
   patch '/gardens/:id', to: 'gardens#update'
 
   get '/gardens/:id/plots', to: 'garden_plots#index'
+  get '/gardens/:id/plots/new', to: 'garden_plots#new'
+  post 'gardens/:id/plots', to: 'garden_plots#create'
 
   get '/plots', to: 'plots#index'
   get '/plots/:id', to: 'plots#show'

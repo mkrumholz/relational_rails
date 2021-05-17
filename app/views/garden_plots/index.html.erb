@@ -10,3 +10,5 @@
     <p>Total area: <%= plot.square_ft %>ft<%= "\u00B2" %></p>
   </div>
 <% end %>
+
+<%= button_to 'New plot',  "/gardens/#{@garden.id}/plots/new", method: :get %>
