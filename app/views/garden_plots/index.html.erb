@@ -1,4 +1,4 @@
-<h1>North Boulder Community Garden</h1>
+<h1><%= @garden.name %></h1>
 
 <h2>All Plots</h2>
 
@@ -13,3 +13,4 @@
 <% end %>
 
 <%= button_to 'New plot',  "/gardens/#{@garden.id}/plots/new", method: :get %>
+<%= button_to 'Sort by name',  "/gardens/#{@garden.id}/plots", method: :get, params: {sort: :by_name} %>

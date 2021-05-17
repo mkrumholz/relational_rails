@@ -1,7 +1,11 @@
 class GardenPlotsController < ApplicationController
   def index
     @garden = Garden.find(params[:id])
-    @plots = Plot.where(garden_id: @garden.id)
+    if params[:sort] == 'by_name'
+      @plots = Plot.where(garden_id: @garden.id).order('lower(name)')
+    else
+      @plots = Plot.where(garden_id: @garden.id)
+    end
   end
 
   def new

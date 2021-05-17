@@ -1,3 +1,11 @@
+# User Story 16, Sort Parent's Children in Alphabetical Order by name (x2)
+#
+# As a visitor
+# When I visit the Parent's children Index Page
+# Then I see a link to sort children in alphabetical order
+# When I click on the link
+# I'm taken back to the Parent's children Index Page where I see all of the parent's children in alphabetical order
+
 require 'rails_helper'
 
 RSpec.describe 'garden plots index' do
@@ -6,15 +14,15 @@ RSpec.describe 'garden plots index' do
                                       water_on: false,
                                       water_access_pts: 2
                                     )
-    @grove         = @north_boulder.plots.create!( name: "The Grove",
-                                                available: true,
-                                                sun_coverage: :full_shade,
-                                                square_ft: 250
-                                              )
     @hive          =  @north_boulder.plots.create!( name: "The Hive",
                                                 available: false,
                                                 sun_coverage: :partial_shade,
                                                 square_ft: 100
+                                              )
+    @grove         = @north_boulder.plots.create!( name: "The Grove",
+                                                available: true,
+                                                sun_coverage: :full_shade,
+                                                square_ft: 250
                                               )
   end
 
@@ -95,5 +103,15 @@ RSpec.describe 'garden plots index' do
     end
 
     expect(current_path).to eq("/plots/#{@hive.id}/edit")
+  end
+
+  it 'has a button to sort the plots in alphabetical order by name' do
+    visit "/gardens/#{@north_boulder.id}/plots"
+
+    expect(@hive.name).to appear_before(@grove.name)
+
+    click_button 'Sort by name'
+
+    expect(@grove.name).to appear_before(@hive.name)
   end
 end
