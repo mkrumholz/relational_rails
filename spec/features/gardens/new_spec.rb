@@ -4,7 +4,7 @@ RSpec.describe 'create garden' do
   it 'creates a new garden' do
     visit '/gardens'
 
-    click_link 'Create new garden'
+    click_button 'New garden'
 
     expect(current_path).to eq('/gardens/new')
 
