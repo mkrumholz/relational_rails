@@ -34,7 +34,7 @@ RSpec.describe 'update garden' do
     expect(page).to have_content('Arborwood Community Garden')
   end
 
-  it 'can update just one attribute of the garden' do
+  it 'can update whether the water is on' do
     visit "/gardens/#{@north_boulder.id}"
 
     click_button 'Edit'
@@ -46,7 +46,23 @@ RSpec.describe 'update garden' do
 
     expect(current_path).to eq("/gardens/#{@north_boulder.id}")
     expect(page).to have_content('North Boulder Community Garden')
-    expect(page).to have_content('Water on? Yes')
-    expect(page).to have_content('Water access points: 2')
+    expect(page).to have_content('Water on for the season? Yes')
+    expect(page).to have_content('Water access points available: 2')
+  end
+
+  it 'can update whether the water is on' do
+    visit "/gardens/#{@north_boulder.id}"
+
+    click_button 'Edit'
+
+    expect(current_path).to eq("/gardens/#{@north_boulder.id}/edit")
+
+    fill_in 'Water access points', with: 4
+    click_on 'Update'
+
+    expect(current_path).to eq("/gardens/#{@north_boulder.id}")
+    expect(page).to have_content('North Boulder Community Garden')
+    expect(page).to have_content('Water on for the season? No')
+    expect(page).to have_content('Water access points available: 4')
   end
 end
