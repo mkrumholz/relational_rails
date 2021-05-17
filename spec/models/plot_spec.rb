@@ -42,5 +42,11 @@ RSpec.describe Plot do
         expect(@plot1.sun_coverage_text).to eq "Partial Shade"
       end
     end
+
+    describe 'garden_name' do
+      it 'returns the name of the garden where plot is located' do
+        expect(@plot1.garden_name).to eq "North Boulder Community Garden"
+      end
+    end
   end
 end

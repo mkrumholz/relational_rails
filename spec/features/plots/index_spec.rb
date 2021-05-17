@@ -1,3 +1,7 @@
+# As a visitor
+# When I visit the child index
+# Then I only see records where the boolean column is true
+
 require 'rails_helper'
 
 RSpec.describe 'gardens index' do
@@ -41,13 +45,13 @@ RSpec.describe 'gardens index' do
                                               )
   end
 
-  it 'shows all of the plot names' do
+  it 'shows the names of only available plots' do
     visit '/plots'
 
     expect(page).to have_content(@grove.name)
     expect(page).to have_content(@hive.name)
-    expect(page).to have_content(@lothlorien.name)
-    expect(page).to have_content(@keukenhof.name)
+    expect(page).to_not have_content(@lothlorien.name)
+    expect(page).to_not have_content(@keukenhof.name)
     expect(page).to have_content(@kt.name)
   end
 
@@ -59,19 +63,11 @@ RSpec.describe 'gardens index' do
     expect(current_path).to eq("/plots/#{@grove.id}")
   end
 
-  it 'displays plot availability when yes' do
+  it 'displays which garden they belong to' do
     visit '/plots'
 
     within "div#plot-#{@grove.id}" do
-      expect(page).to have_content("Currently available? Yes")
-    end
-  end
-
-  it 'displays plot availability when no' do
-    visit '/plots'
-
-    within "div#plot-#{@lothlorien.id}" do
-      expect(page).to have_content("Currently available? No")
+      expect(page).to have_content("Location: North Boulder Community Garden")
     end
   end
 

@@ -1,9 +1,9 @@
-<h1>All Garden Plots</h1>
+<h1>All Available Plots</h1>
 
 <% @plots.each do |plot| %>
   <div id="plot-<%= plot.id %>">
     <h3><a href="/plots/<%= plot.id %>"><%= plot.name %></a></h3>
-    <p>Currently available? <%= plot.available_text %></p>
+    <p>Location: <a href="/gardens/<%= plot.garden_id %>"><%= plot.garden_name %></a></p>
     <p>Sun coverage: <%= plot.sun_coverage_text %></p>
     <p>Total area: <%= plot.square_ft %>ft<%= "\u00B2" %></p>
     <%= button_to 'Edit', "/plots/#{plot.id}/edit", method: :get %>

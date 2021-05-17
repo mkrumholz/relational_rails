@@ -9,4 +9,8 @@ class Plot < ApplicationRecord
   def sun_coverage_text
     sun_coverage.split('_').map {|w| w.capitalize}.join(' ')
   end
+
+  def garden_name
+    garden.name
+  end
 end
