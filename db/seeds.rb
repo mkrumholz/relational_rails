@@ -8,7 +8,7 @@
 Plot.destroy_all
 Garden.destroy_all
 FlowerShop.destroy_all
-Flowers.destroy_all
+Flower.destroy_all
 
 north_boulder = Garden.create!( name:"North Boulder Community Garden",
                                 water_on: false,

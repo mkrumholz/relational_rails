@@ -25,7 +25,7 @@ RSpec.describe 'header nav' do
     visit '/'
 
     within 'nav' do
-      click_on "Garden Plots"
+      click_on "Available Plots"
     end
 
     expect(current_path).to eq '/plots'

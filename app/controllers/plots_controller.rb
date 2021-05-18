@@ -1,6 +1,6 @@
 class PlotsController < ApplicationController
   def index
-    @plots = Plot.all
+    @plots = Plot.where(available: true)
   end
 
   def show

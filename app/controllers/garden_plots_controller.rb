@@ -1,7 +1,8 @@
-class GardenPlotsController < ApplicationController
+class GardenPlotsController < PlotsController
   def index
     @garden = Garden.find(params[:id])
-    @plots = Plot.where(garden_id: @garden.id)
+    return @plots = @garden.plots_by_name if params[:sort] == 'by_name'
+    @plots = @garden.plots
   end
 
   def new
@@ -10,13 +11,7 @@ class GardenPlotsController < ApplicationController
 
   def create
     garden = Garden.find(params[:id])
-    plot = Plot.create(plot_params)
-    plot.update({garden_id: garden.id})
+    plot = garden.plots.create(plot_params)
     redirect_to "/gardens/#{garden.id}/plots"
   end
-
-  private
-    def plot_params
-      params.permit(:name, :available, :sun_coverage, :square_ft)
-    end
 end
