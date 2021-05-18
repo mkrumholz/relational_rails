@@ -6,11 +6,11 @@ RSpec.describe 'flower shop flowers index' do
                                         rating: 3,
                                         same_day_delivery: false
                                       )
-    @flower1       = @mikes_flowers.flowers.create!( species:"Rose",
+    @flower1       = @mikes_flowers.flowers.create!( species:"Sunflower",
                                         shelf_life: 6,
                                         in_stock: false
                                       )
-    @flower2       =  @mikes_flowers.flowers.create!( species:"Sunflower",
+    @flower2       =  @mikes_flowers.flowers.create!( species:"Rose",
                                         shelf_life: 4,
                                         in_stock: true
                                       )
@@ -31,7 +31,17 @@ RSpec.describe 'flower shop flowers index' do
 
     click_on "Rose"
 
-    expect(current_path).to eq("/flowers/#{@flower1.id}")
+    expect(current_path).to eq("/flowers/#{@flower2.id}")
+  end
+
+  it 'has a button to sort the flowers in alphabetical order by name' do
+    visit "/flower_shops/#{@mikes_flowers.id}/flowers"
+
+    expect(@flower1.species).to appear_before(@flower2.species)
+
+    click_button 'Sort by name'
+
+    expect(@flower2.species).to appear_before(@flower1.species)
   end
 
 end
