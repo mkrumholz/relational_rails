@@ -6,4 +6,7 @@ class FlowerShopsController < ApplicationController
   def show
     @flower_shop = FlowerShop.find(params[:id])
   end
+
+  def new
+  end
 end
