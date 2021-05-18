@@ -17,6 +17,12 @@ class PlotsController < ApplicationController
     redirect_to "/plots/#{plot.id}"
   end
 
+  def destroy
+    plot = Plot.find(params[:id])
+    plot.destroy
+    redirect_to '/plots'
+  end
+
   private
     def plot_params
       params.permit(:name, :available, :sun_coverage, :square_ft)

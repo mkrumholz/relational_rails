@@ -12,12 +12,13 @@ Rails.application.routes.draw do
 
   get '/gardens/:id/plots', to: 'garden_plots#index'
   get '/gardens/:id/plots/new', to: 'garden_plots#new'
-  post 'gardens/:id/plots', to: 'garden_plots#create'
+  post '/gardens/:id/plots', to: 'garden_plots#create'
 
   get '/plots', to: 'plots#index'
   get '/plots/:id', to: 'plots#show'
   get '/plots/:id/edit', to: 'plots#edit'
   patch '/plots/:id', to: 'plots#update'
+  delete '/plots/:id', to: 'plots#destroy'
 
   get '/flower_shops',to: 'flower_shops#index'
   get '/flower_shops/:id', to: 'flower_shops#show'
