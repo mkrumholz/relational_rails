@@ -54,4 +54,6 @@ RSpec.describe 'plot index' do
 
     expect(current_path).to eq('/gardens/new')
   end
+
+  it 'has a button to delete each garden'
 end
