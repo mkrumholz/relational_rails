@@ -34,4 +34,6 @@ Rails.application.routes.draw do
 
   get '/flowers', to: 'flowers#index'
   get '/flowers/:id', to: 'flowers#show'
+  get '/flowers/:id/edit', to: 'flowers#edit'
+  patch '/flowers/:id', to: 'flowers#update'
 end
