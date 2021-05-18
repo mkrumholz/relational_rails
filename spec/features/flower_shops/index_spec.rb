@@ -51,4 +51,14 @@ RSpec.describe "flower shops index page", type: :feature do
 
     expect(current_path).to eq('/flower_shops/new')
   end
+
+  it 'has buttons to edit each flower shop' do
+    visit '/flower_shops'
+
+    within "div#flower_shop-#{@mikes_flowers.id}" do
+      click_button 'Edit'
+    end
+
+    expect(current_path).to eq("/flower_shops/#{@mikes_flowers.id}/edit")
+  end
 end
