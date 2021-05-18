@@ -21,7 +21,6 @@ RSpec.describe 'create a flower for a flower shop' do
     choose :in_stock, option: true
     fill_in 'Shelf Life', with: 0
     click_on 'Create Flower'
-    save_and_open_page
 
     expect(current_path).to eq("/flower_shops/#{@mikes_flowers.id}/flowers")
       expect(page).to have_content('Tulip')
