@@ -43,4 +43,12 @@ RSpec.describe "flower shops index page", type: :feature do
 
     expect(page).to have_content("Established: 2021-05-09")
   end
+
+  it 'has a button to create a new flower shop' do
+    visit '/flower_shops'
+
+    click_button 'New Flower Shop'
+
+    expect(current_path).to eq('/flower_shops/new')
+  end
 end
