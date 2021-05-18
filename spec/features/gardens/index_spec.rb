@@ -99,12 +99,4 @@ RSpec.describe 'plot index' do
     expect(@north_boulder.name).to appear_before(@south_boulder.name)
     expect(@south_boulder.name).to appear_before(@tuinpark.name)
   end
-
-#   As a visitor
-# When I visit the Parents Index Page
-# Then I see a link to sort parents by the number of child_table_name they have
-# When I click on the link
-# I'm taken back to the Parent Index Page where I see all of the parents
-# in order of their count of child_table_name (highest to lowest)
-# And, I see the number of children next to each parent name
 end

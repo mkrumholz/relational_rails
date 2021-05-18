@@ -40,7 +40,6 @@ RSpec.describe 'flowers index page' do
   it 'shows all flowers names' do
     visit "/flowers"
 
-
     expect(page).to have_content(@flower1.species)
     # expect(page).to have_content("Shelf Life: 3 Days")
     # expect(page).to have_content("In Stock: false")
