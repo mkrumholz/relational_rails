@@ -10,3 +10,4 @@
 </ul>
 
 <%= button_to 'Edit', "/plots/#{@plot.id}/edit", method: :get %>
+<%= button_to 'Delete plot', "/plots/#{@plot.id}", method: :delete %>
