@@ -106,4 +106,15 @@ RSpec.describe 'garden plots index' do
 
     expect(@grove.name).to appear_before(@hive.name)
   end
+
+  it 'has a button to only show plots larger than sepcified square feet' do
+    visit "/gardens/#{@north_boulder.id}/plots"
+
+    expect(page).to have_content('The Hive')
+
+    fill_in "Show only plots with minimum plot area:", with: 200
+    click_on "Update view by area"
+
+    expect(page).to_not have_content('The Hive')
+  end
 end

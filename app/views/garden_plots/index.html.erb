@@ -1,16 +1,28 @@
 <h1><%= @garden.name %></h1>
 
-<h2>All Plots</h2>
+<div class="container-sm  mx-auto mb-5">
+  <h2>All Plots</h2>
 
-<% @plots.each do |plot| %>
-  <div id="plot-<%= plot.id %>">
-    <h3><a href="/plots/<%= plot.id %>"><%= plot.name %></a></h3>
-    <p>Currently available? <%= plot.available_text %></p>
-    <p>Sun coverage: <%= plot.sun_coverage_text %></p>
-    <p>Total area: <%= plot.square_ft %>ft<%= "\u00B2" %></p>
-    <%= button_to 'Edit', "/plots/#{plot.id}/edit", method: :get %>
+  <div class="row row-cols-3">
+    <% @plots.each do |plot| %>
+      <div class="col mt-4 mb-2" id="plot-<%= plot.id %>">
+        <h3><a href="/plots/<%= plot.id %>"><%= plot.name %></a></h3>
+        <p>Currently available? <%= plot.available_text %></p>
+        <p>Sun coverage: <%= plot.sun_coverage_text %></p>
+        <p>Total area: <%= plot.square_ft %>ft<%= "\u00B2" %></p>
+        <%= button_to 'Edit', "/plots/#{plot.id}/edit", method: :get %>
+      </div>
+    <% end %>
+  </div><br/>
+
+  <%= button_to 'New plot',  "/gardens/#{@garden.id}/plots/new", method: :get%><br/>
+
+  <div class="sort-view mt-4">
+    <%= bootstrap_form_with url: "/gardens/#{@garden.id}/plots", method: :get, local: true do |form| %>
+      <aside class="mb-2"><%= form.submit "Update view by area" %></aside>
+      <%= form.number_field :square_ft, in: 1..20000, step: 1, label: "Show only plots with minimum plot area:", append: "ft\u00B2" %><br/>
+    <% end %>
+    <%= button_to 'Sort by name',  "/gardens/#{@garden.id}/plots", method: :get, params: {sort: :by_name}, class: "btn btn-secondary" %><br/>
+    <%= button_to 'Clear view updates',  "/gardens/#{@garden.id}/plots", method: :get, class: "btn btn-secondary" %>
   </div>
-<% end %>
-
-<%= button_to 'New plot',  "/gardens/#{@garden.id}/plots/new", method: :get %>
-<%= button_to 'Sort by name',  "/gardens/#{@garden.id}/plots", method: :get, params: {sort: :by_name} %>
+</div>
