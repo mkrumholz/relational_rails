@@ -1,0 +1,12 @@
+<h1><%= @plot.name %></h1>
+
+<%= bootstrap_form_with url: "/plots/#{@plot.id}", method: :patch, local: true do |form| %>
+  <%= form.text_field :name, value: @plot.name %><br/>
+  <%= form.form_group :available, label: { text: "Available?" } do %><br/>
+    <%= form.radio_button :available, true, checked: @plot.available, label: "Yes", inline:true %>
+    <%= form.radio_button :available, false, checked: !@plot.available, label: "No", inline:true %>
+  <% end %><br/>
+  <%= form.select :sun_coverage, [['Full shade', :full_shade], ['Partial shade', :partial_shade], ['Partial sun', :partial_sun], ['Full sun', :full_sun]], label: 'Sun coverage', value: @plot.sun_coverage %><br/>
+  <%= form.number_field :square_ft, in: 1..20000, step: 1, label: "Total area (ft\u00B2)", append: "ft\u00B2", value: @plot.square_ft %><br/>
+  <%= form.submit 'Update' %>
+<% end %>

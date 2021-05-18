@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe 'gardens index' do
+RSpec.describe 'plot index' do
   before :each do
     @north_boulder = Garden.create!( name:"North Boulder Community Garden",
                                     water_on: false,

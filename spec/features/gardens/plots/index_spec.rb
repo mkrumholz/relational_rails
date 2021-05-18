@@ -78,4 +78,22 @@ RSpec.describe 'garden plots index' do
       expect(page).to have_content("Total area: 100ft\u00B2")
     end
   end
+
+  it 'has a button to create a new plot' do
+    visit "/gardens/#{@north_boulder.id}/plots"
+
+    click_button 'New plot'
+
+    expect(current_path).to eq("/gardens/#{@north_boulder.id}/plots/new")
+  end
+
+  it 'has buttons to edit each plot' do
+    visit "/gardens/#{@north_boulder.id}/plots"
+
+    within "div#plot-#{@hive.id}" do
+      click_button 'Edit'
+    end
+
+    expect(current_path).to eq("/plots/#{@hive.id}/edit")
+  end
 end

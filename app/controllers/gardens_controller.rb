@@ -21,12 +21,7 @@ class GardensController < ApplicationController
 
   def update
     garden = Garden.find(params[:id])
-    garden.update({
-      name: params[:name],
-      water_on: params[:water_on],
-      water_access_pts: params[:water_access_pts]
-      })
-    garden.save
+    garden.update(garden_params)
     redirect_to "/gardens/#{params[:id]}"
   end
 

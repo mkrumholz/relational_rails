@@ -90,4 +90,14 @@ RSpec.describe 'gardens index' do
       expect(page).to have_content("Total area: 250ft\u00B2")
     end
   end
+
+  it 'has buttons to edit each plot' do
+    visit "/plots"
+
+    within "div#plot-#{@grove.id}" do
+      click_button 'Edit'
+    end
+
+    expect(current_path).to eq("/plots/#{@grove.id}/edit")
+  end
 end

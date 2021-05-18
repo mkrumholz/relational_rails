@@ -8,3 +8,5 @@
   <li>Plot added: <%= @plot.created_at %></li>
   <li>Last update:  <%= @plot.updated_at %></li>
 </ul>
+
+<%= button_to 'Edit', "/plots/#{@plot.id}/edit", method: :get %>
