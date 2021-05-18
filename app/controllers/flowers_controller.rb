@@ -1,6 +1,6 @@
 class FlowersController < ApplicationController
   def index
-    @flowers = Flower.all
+    @flowers = Flower.where(in_stock: true)
   end
 
   def show
