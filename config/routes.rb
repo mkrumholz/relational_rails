@@ -27,8 +27,9 @@ Rails.application.routes.draw do
 
 
   get '/flower_shops/:id/flowers', to: 'flower_shop_flowers#index'
+  get '/flower_shops/:id/flowers/new', to: 'flower_shop_flowers#new'
+  post '/flower_shops/:id/flowers', to: 'flower_shop_flowers#create'
 
-  get '/flowers', to: 'flowers#index'
   get '/flowers', to: 'flowers#index'
   get '/flowers/:id', to: 'flowers#show'
 end
