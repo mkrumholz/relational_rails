@@ -1,7 +1,8 @@
 class FlowerShopFlowersController < FlowersController
   def index
-    @flowers = Flower.where(flower_shop_id: params[:id])
     @flower_shop = FlowerShop.find(params[:id])
+    return @flowers = @flower_shop.flowers_by_name if params[:sort] == 'by_species'
+    @flowers = @flower_shop.flowers
   end
 
   def new
