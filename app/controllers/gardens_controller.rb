@@ -1,6 +1,10 @@
 class GardensController < ApplicationController
   def index
-    @gardens = Garden.order(created_at: :desc)
+    if params[:sort] == 'by_num_plots'
+      @gardens = Garden.all.sort_by { |garden| garden.plot_count }.reverse
+    else
+      @gardens = Garden.order(created_at: :desc)
+    end
   end
 
   def show

@@ -9,4 +9,6 @@
   </div>
 <% end %>
 
-<%= button_to 'New garden',  "/gardens/new", method: :get %>
+<%= button_to 'New garden',  "/gardens/new", method: :get %><br/>
+
+<%= button_to 'Sort by # of plots',  "/gardens", method: :get, params: {sort: :by_num_plots}, class: "btn btn-secondary" %>
