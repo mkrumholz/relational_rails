@@ -92,4 +92,15 @@ RSpec.describe 'gardens index' do
 
     expect(current_path).to eq("/plots/#{@grove.id}/edit")
   end
+
+  it 'has buttons to delete each plot' do
+    visit "/plots"
+
+    within "div#plot-#{@grove.id}" do
+      click_button 'Delete'
+    end
+
+    expect(current_path).to eq("/plots")
+    expect(page).to_not have_content('The Grove')
+  end
 end

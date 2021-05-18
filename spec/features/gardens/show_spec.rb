@@ -1,7 +1,3 @@
-# As a visitor
-# When I visit a parent's show page
-# I see a count of the number of children associated with this parent
-
 require 'rails_helper'
 
 RSpec.describe 'gardens index' do
@@ -80,5 +76,14 @@ RSpec.describe 'gardens index' do
     visit "/gardens/#{@north_boulder.id}"
 
     expect(page).to have_content("Total plots: 2")
+  end
+
+  it 'can delete an individual garden' do
+    visit "/gardens/#{@north_boulder.id}"
+
+    click_button 'Delete garden'
+
+    expect(current_path).to eq("/gardens")
+    expect(page).to_not have_content('North Boulder Community Garden')
   end
 end

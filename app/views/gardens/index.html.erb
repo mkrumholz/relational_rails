@@ -5,6 +5,7 @@
     <aside><%= garden.created_at %></aside>
     <h3><a href="/gardens/<%= garden.id %>"><%= garden.name %></a></h3>
     <%= button_to 'Edit', "/gardens/#{garden.id}/edit", method: :get %>
+    <%= button_to 'Delete', "/gardens/#{garden.id}", method: :delete %>
   </div>
 <% end %>
 

@@ -1,5 +1,5 @@
 class Garden < ApplicationRecord
-  has_many :plots
+  has_many :plots, dependent: :destroy
 
   def water_on_text
     return "Yes" if water_on

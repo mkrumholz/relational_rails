@@ -12,3 +12,5 @@
 <%= button_to 'Edit', "/gardens/#{@garden.id}/edit", method: :get %>
 
 <%= button_to 'See all plots', "/gardens/#{@garden.id}/plots", method: :get %>
+
+<%= button_to 'Delete garden', "/gardens/#{@garden.id}", method: :delete %>
