@@ -86,12 +86,4 @@ RSpec.describe 'gardens index' do
     expect(current_path).to eq("/gardens")
     expect(page).to_not have_content('North Boulder Community Garden')
   end
-
-  # As a visitor
-  # When I visit a parent show page
-  # Then I see a link to delete the parent
-  # When I click the link "Delete Parent"
-  # Then a 'DELETE' request is sent to '/parents/:id',
-  # the parent is deleted, and all child records are deleted
-  # and I am redirected to the parent index page where I no longer see this parent
 end
