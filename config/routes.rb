@@ -22,6 +22,8 @@ Rails.application.routes.draw do
   get '/flower_shops/new', to: 'flower_shops#new'
   get '/flower_shops/:id', to: 'flower_shops#show'
   post '/flower_shops', to: 'flower_shops#create'
+  get '/flower_shops/:id/edit', to: 'flower_shops#edit'
+  patch '/flower_shops/:id', to: 'flower_shops#update'
 
 
   get '/flower_shops/:id/flowers', to: 'flower_shop_flowers#index'
