@@ -37,4 +37,12 @@ RSpec.describe "flower shops show page", type: :feature do
 
     expect(page).to have_content("Total Flowers: 2")
   end
+
+  it 'has button to edit flower shop' do
+    visit "/flower_shops/#{@mikes_flowers.id}"
+
+    click_button 'Edit'
+
+    expect(current_path).to eq("/gardens/#{@north_boulder.id}/edit")
+  end
 end
