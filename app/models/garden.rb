@@ -13,4 +13,8 @@ class Garden < ApplicationRecord
   def plots_by_name
     plots.order(Arel.sql('lower(name)'))
   end
+
+  def self.by_plot_count
+    self.all.sort_by { |garden| garden.plot_count }.reverse
+  end
 end

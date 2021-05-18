@@ -7,14 +7,14 @@ RSpec.describe Garden do
 
   describe 'instance methods' do
     before :each do
-      @north_boulder = Garden.create!( name:"North Boulder Community Garden",
-                                water_on: false,
+      @south_boulder = Garden.create!( name:"South Boulder Community Garden",
+                                water_on: true,
                                 water_access_pts: 2,
                                 created_at: Time.now,
                                 updated_at: Time.now
                               )
-      @south_boulder = Garden.create!( name:"South Boulder Community Garden",
-                                water_on: true,
+      @north_boulder = Garden.create!( name:"North Boulder Community Garden",
+                                water_on: false,
                                 water_access_pts: 2,
                                 created_at: Time.now,
                                 updated_at: Time.now
@@ -51,6 +51,12 @@ RSpec.describe Garden do
       it 'returns the plots sorted by name in alphabetical order' do
         expect(@north_boulder.plots.first).to eq @hive
         expect(@north_boulder.plots_by_name.first).to eq @grove
+      end
+    end
+
+    describe 'sort_by_plot_count' do
+      it 'returns the plots sorted by plot count desc' do
+        expect(Garden.by_plot_count).to eq [@north_boulder, @south_boulder]
       end
     end
   end
