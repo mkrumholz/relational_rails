@@ -13,7 +13,7 @@ class FlowersController < ApplicationController
 
   def update
     flower = Flower.find(params[:id])
-    flower.update(flower1_params)
+    flower.update(flower_params)
     redirect_to "/flowers/#{flower.id}"
   end
 
