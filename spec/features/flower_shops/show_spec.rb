@@ -41,8 +41,8 @@ RSpec.describe "flower shops show page", type: :feature do
   it 'has button to edit flower shop' do
     visit "/flower_shops/#{@mikes_flowers.id}"
 
-    click_button 'Edit'
+    click_button 'Update Shop'
 
-    expect(current_path).to eq("/gardens/#{@north_boulder.id}/edit")
+    expect(current_path).to eq("/flower_shops/#{@mikes_flowers.id}/edit")
   end
 end
