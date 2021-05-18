@@ -25,6 +25,12 @@ class GardensController < ApplicationController
     redirect_to "/gardens/#{params[:id]}"
   end
 
+  def destroy
+    garden = Garden.find(params[:id])
+    garden.destroy
+    redirect_to '/gardens'
+  end
+
   private
     def garden_params
       params.permit(:name, :water_on, :water_access_pts)

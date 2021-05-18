@@ -55,5 +55,14 @@ RSpec.describe 'plot index' do
     expect(current_path).to eq('/gardens/new')
   end
 
-  it 'has a button to delete each garden'
+  it 'has a button to delete each garden' do
+    visit '/gardens'
+
+    within "div#garden-#{@north_boulder.id}" do
+      click_button 'Delete'
+    end
+
+    expect(current_path).to eq("/gardens")
+    expect(page).to_not have_content('North Boulder Community Garden')
+  end
 end
