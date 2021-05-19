@@ -59,22 +59,10 @@ RSpec.describe Garden do
       end
     end
 
-    describe '#sort_order' do
-      it 'sets the sort order by name for the garden plots when params dictate' do
-        params = {sort: 'by_name'}
-        expect(@north_boulder.sort_order(params).first).to eq @aaa
-      end
-
-      it 'leaves the sort order as-is for the garden plots when no sort params' do
-        params = {}
-        expect(@north_boulder.sort_order(params).first).to eq @hive
-      end
-    end
-
     describe '#min_square_ft' do
-      it 'returns only plots from sorted_plots with sq ft larger than provided value' do
-        params = {sort: 'by_name', square_ft: 275}
-        expect(@north_boulder.min_square_ft(params).first).to eq @aaa
+      it 'returns only plots with sq ft larger than provided value' do
+        expect(@north_boulder.min_square_ft(275)).to include @hive
+        expect(@north_boulder.min_square_ft(275)).to_not include @grove
       end
     end
   end

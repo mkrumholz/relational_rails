@@ -20,14 +20,7 @@ class Garden < ApplicationRecord
     .order(Arel.sql("count(distinct plots.id) desc"))
   end
 
-  def sort_order(params)
-    return plots_by_name if params[:sort] == 'by_name'
-    plots
+  def min_square_ft(area)
+    plots.larger_than(area)
   end
-
-  # def min_square_ft(params)
-  #   sorted_plots = sort_order(params)
-  #   return sorted_plots.larger_than(params[:square_ft]) if !params[:square_ft].nil?
-  #   sorted_plots
-  # end
 end
