@@ -5,6 +5,7 @@
 
     <h3><a href="/flower_shops/<%= flower_shop.id %>"><%= flower_shop.name %> Established: <%= flower_shop.created_at %></a></h3>
     <%= button_to 'Edit', "/flower_shops/#{flower_shop.id}/edit", method: :get %>
+    <%= button_to 'Delete Shop', "/flower_shops/#{flower_shop.id}", method: :delete %>
   </div>
 <% end %>
 
