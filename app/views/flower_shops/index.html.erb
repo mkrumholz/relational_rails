@@ -1,11 +1,13 @@
 <h1>The Flower Shops</h1>
 
-<% @flower_shops.each do |flower_shop| %>
-  <div id="flower_shop-<%= flower_shop.id %>">
+<div class="container-sm  mx-auto mb-5">
+  <% @flower_shops.each do |flower_shop| %>
+    <div class="my-4" id="flower_shop-<%= flower_shop.id %>">
 
-    <h3><a href="/flower_shops/<%= flower_shop.id %>"><%= flower_shop.name %> Established: <%= flower_shop.created_at %></a></h3>
-    <%= button_to 'Edit', "/flower_shops/#{flower_shop.id}/edit", method: :get %>
-  </div>
-<% end %>
+      <h3><a href="/flower_shops/<%= flower_shop.id %>"><%= flower_shop.name %> Established: <%= flower_shop.created_at %></a></h3>
+      <%= button_to 'Edit', "/flower_shops/#{flower_shop.id}/edit", method: :get %>
+    </div>
+  <% end %>
 
-<%= button_to 'New Flower Shop',  "/flower_shops/new", method: :get %>
+  <%= button_to 'New Flower Shop',  "/flower_shops/new", method: :get %>
+</div>

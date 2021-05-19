@@ -1,8 +1,10 @@
 class GardenPlotsController < PlotsController
   def index
     @garden = Garden.find(params[:id])
-    return @plots = @garden.plots_by_name if params[:sort] == 'by_name'
     @plots = @garden.plots
+    if !params[:sort].nil? || !params[:square_ft].nil?
+      @plots = update_view(@garden, params)
+    end
   end
 
   def new
@@ -14,4 +16,13 @@ class GardenPlotsController < PlotsController
     plot = garden.plots.create(plot_params)
     redirect_to "/gardens/#{garden.id}/plots"
   end
+
+  private
+    def update_view(garden, params)
+      if params[:sort] == 'by_name'
+        garden.plots_by_name
+      elsif !params[:square_ft].nil?
+        garden.min_square_ft(params[:square_ft])
+      end
+    end
 end
