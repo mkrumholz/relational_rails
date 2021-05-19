@@ -46,7 +46,7 @@ RSpec.describe 'update flowers' do
 
     expect(current_path).to eq("/flowers/#{@flower1.id}")
     expect(page).to have_content("Rose")
-    expect(page).to have_content("In Stock: false")
+    expect(page).to have_content("In Stock: true")
     expect(page).to have_content("Shelf Life: 0")
   end
 end
