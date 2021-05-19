@@ -1,11 +1,11 @@
 <h1><%= @flower_shop.name %></h1>
 
-<p>Total Flowers: <%= @flower_shop.flower_count %></p>
-<p>Shop Rating: <%= @flower_shop.rating %></p>
-<p>Same Day Delivery: <%= @flower_shop.same_day_delivery %></p>
+<div class="container-sm  mx-auto mb-5">
+  <p>Total Flowers: <%= @flower_shop.flower_count %></p>
+  <p>Shop Rating: <%= @flower_shop.rating %></p>
+  <p>Same Day Delivery: <%= @flower_shop.same_day_delivery %></p>
 
-<%= button_to 'Update Shop', "/flower_shops/#{@flower_shop.id}/edit", method: :get %>
-
-<%= button_to 'See all Flowers', "/flower_shops/#{@flower_shop.id}/flowers", method: :get %>
-
-<%= button_to 'Delete Shop', "/flower_shops/#{@flower_shop.id}", method: :delete %>
+  <%= button_to 'Update Shop', "/flower_shops/#{@flower_shop.id}/edit", method: :get %><br/>
+  <%= button_to 'Delete Shop', "/flower_shops/#{@flower_shop.id}", method: :delete %><br/>
+  <%= button_to 'See all Flowers', "/flower_shops/#{@flower_shop.id}/flowers", method: :get %>
+</div>

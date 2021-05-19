@@ -1,11 +1,13 @@
 <h1><%= @flower_shop.name %></h1>
 
-<%= bootstrap_form_with url: "/flower_shops/#{@flower_shop.id}", method: :patch, local: true do |form| %>
-  <%= form.text_field :name, value: @flower_shop.name %><br/>
-  <%= form.form_group :same_day_delivery, label: { text: "Same Day Delivery?" } do %><br/>
-    <%= form.radio_button :same_day_delivery, true, checked: @flower_shop.same_day_delivery, label: "Yes", inline:true %>
-    <%= form.radio_button :same_day_delivery, false, checked: !@flower_shop.same_day_delivery, label: "No", inline:true %>
-  <% end %><br/>
-  <%= form.number_field :rating, in: 1..5, value: @flower_shop.rating, label: "Rating" %><br/>
-  <%= form.submit 'Update' %>
-<% end %>
+<div class="container-sm  mx-auto mb-5">
+  <%= bootstrap_form_with url: "/flower_shops/#{@flower_shop.id}", method: :patch, local: true do |form| %>
+    <%= form.text_field :name, value: @flower_shop.name %><br/>
+    <%= form.form_group :same_day_delivery, label: { text: "Same Day Delivery?" } do %><br/>
+      <%= form.radio_button :same_day_delivery, true, checked: @flower_shop.same_day_delivery, label: "Yes", inline:true %>
+      <%= form.radio_button :same_day_delivery, false, checked: !@flower_shop.same_day_delivery, label: "No", inline:true %>
+    <% end %><br/>
+    <%= form.number_field :rating, in: 1..5, value: @flower_shop.rating, label: "Rating" %><br/>
+    <%= form.submit 'Update' %>
+  <% end %>
+</div>

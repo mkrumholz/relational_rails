@@ -1,19 +1,21 @@
 <h1><%= @flower_shop.name %></h1>
 
-<h2>All Flowers</h2>
+<div class="container-sm  mx-auto mb-5">
+  <h2>All Flowers</h2>
 
-<% @flowers.each do |flower| %>
-    <h3><a href="/flowers/<%= flower.id %>"><%= flower.species %></a></h3>
+  <% @flowers.each do |flower| %>
+      <h3><a href="/flowers/<%= flower.id %>"><%= flower.species %></a></h3>
 
-    <p>Shelf Life: <%= flower.shelf_life %> Days</p>
-    <p>In Stock: <%= flower.in_stock %></p>
-    <p>Established: <%= flower.created_at %></p>
-<% end %>
+      <p>Shelf Life: <%= flower.shelf_life %> Days</p>
+      <p>In Stock: <%= flower.in_stock %></p>
+      <p>Established: <%= flower.created_at %></p>
+  <% end %>
 
-<%= button_to 'New Flower', "/flower_shops/#{@flower_shop.id}/flowers/new", method: :get %>
-<%= button_to 'Sort by name',  "/flower_shops/#{@flower_shop.id}/flowers", method: :get, params: {sort: :by_species} %><br/>
+  <%= button_to 'New Flower', "/flower_shops/#{@flower_shop.id}/flowers/new", method: :get %>
+  <%= button_to 'Sort by name',  "/flower_shops/#{@flower_shop.id}/flowers", method: :get, params: {sort: :by_species} %><br/>
 
-<%= bootstrap_form_with url: "/flower_shops/#{@flower_shop.id}/flowers", method: :get, local: true do |form| %>
-  <%= form.submit "View flowers by shelf life" %>
-  <%= form.number_field :shelf_life, in: 1..30, label: "Flowers with a shelf life lower than:" %> Days <br/>
-<% end %><br/>
+  <%= bootstrap_form_with url: "/flower_shops/#{@flower_shop.id}/flowers", method: :get, local: true do |form| %>
+    <%= form.submit "View flowers by shelf life" %>
+    <%= form.number_field :shelf_life, in: 1..30, label: "Flowers with a shelf life lower than:" %> Days <br/>
+  <% end %><br/>
+</div>
