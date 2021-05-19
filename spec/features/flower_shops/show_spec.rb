@@ -54,4 +54,12 @@ RSpec.describe "flower shops show page", type: :feature do
     expect(current_path).to eq("/flower_shops")
     expect(page).to_not have_content("Mikes Flower Shop")
   end
+
+  it 'has a button to see all flowers' do
+    visit "/flower_shops/#{@mikes_flowers.id}"
+
+    click_button 'See all Flowers'
+
+    expect(current_path).to eq("/flower_shops/#{@mikes_flowers.id}/flowers")
+  end
 end
