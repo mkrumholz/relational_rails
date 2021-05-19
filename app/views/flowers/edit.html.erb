@@ -4,7 +4,7 @@
   <%= form.text_field :species, value: @flower.species %><br/>
   <%= form.form_group :in_stock, label: { text: "In Stock?" } do %><br/>
     <%= form.radio_button :in_stock, true, checked: @flower.in_stock, label: "Yes", inline:true %>
-    <%= form.radio_button :in_stock, false, checked: @flower.in_stock, label: "No", inline:true %>
+    <%= form.radio_button :in_stock, false, checked: !@flower.in_stock, label: "No", inline:true %>
   <% end %><br/>
   <%= form.number_field :shelf_life, in: 1..30, label: "Current Shelf Life", value: @flower.shelf_life %><br/>
   <%= form.submit 'Update' %>
