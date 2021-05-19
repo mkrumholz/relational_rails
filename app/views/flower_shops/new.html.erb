@@ -1,0 +1,11 @@
+<h1>New Flower Shop</h1>
+
+<%= bootstrap_form_with url: '/flower_shops', method: :post, local: true do |form| %>
+  <%= form.text_field :name %><br/>
+  <%= form.form_group :same_day_delivery, label: { text: "Same Day Delivery?" } do %><br/>
+    <%= form.radio_button :same_day_delivery, true, label: "Yes", inline:true %>
+    <%= form.radio_button :same_day_delivery, false, label: "No", inline:true %>
+  <% end %><br/>
+  <%= form.number_field :rating, in: 1..5, label: "Rating?" %><br/>
+  <%= form.submit 'Create Shop' %>
+<% end %>

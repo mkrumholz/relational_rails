@@ -17,16 +17,16 @@ RSpec.describe 'flowers index page' do
 
     @flower1     = @mikes_flowers.flowers.create!( species:"Rose",
                                         shelf_life: 6,
-                                        in_stock: false
+                                        in_stock: true
                                       )
     @flower2     =  @mikes_flowers.flowers.create!( species:"Sunflower",
                                         shelf_life: 4,
-                                        in_stock: true
+                                        in_stock: false
                                       )
 
     @flower3      =  @floral_designs.flowers.create!( species:"Tulip",
                                       shelf_life: 3,
-                                      in_stock: true
+                                      in_stock: false
                                     )
     @flower4      = @flower_depot.flowers.create!( species:"Carnation",
                                       shelf_life: 7,
@@ -37,12 +37,14 @@ RSpec.describe 'flowers index page' do
                                       in_stock: true
                                     )
   end
-  it 'shows all flowers names' do
+  it 'shows only flowers in stock' do
     visit "/flowers"
 
     expect(page).to have_content(@flower1.species)
-    # expect(page).to have_content("Shelf Life: 3 Days")
-    # expect(page).to have_content("In Stock: false")
+    expect(page).to_not have_content(@flower2.species)
+    expect(page).to_not have_content(@flower3.species)
+    expect(page).to have_content(@flower4.species)
+    expect(page).to have_content(@flower5.species)
   end
 
   it 'links to each flowers show page' do
