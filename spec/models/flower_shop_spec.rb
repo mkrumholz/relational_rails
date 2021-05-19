@@ -4,8 +4,6 @@ RSpec.describe FlowerShop, type: :model do
   describe 'relationships' do
     it { should have_many :flowers }
   end
-
-  describe 'instance methods' do
     before :each do
       @mikes_flowers = FlowerShop.create!( name:"Mikes Flower Shop",
                                           rating: 3,
@@ -23,7 +21,7 @@ RSpec.describe FlowerShop, type: :model do
                                           shelf_life: 6,
                                           in_stock: false
                                         )
-      @flower2     =  @mikes_flowers.flowers.create!( species:"Sunflower",
+      @flower2     =  @mikes_flowers.flowers.create!( species:"Carnation",
                                           shelf_life: 4,
                                           in_stock: true
                                         )
@@ -34,5 +32,11 @@ RSpec.describe FlowerShop, type: :model do
         expect(@mikes_flowers.flower_count).to eq 2
       end
     end
+
+    describe 'flowers by name' do
+      it 'returns the flowers sorted by name in alphabetical order' do
+        expect(@mikes_flowers.flowers.first).to eq @flower1
+        expect(@mikes_flowers.flowers_by_name.first).to eq @flower2
+      end
   end
 end

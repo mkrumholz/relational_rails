@@ -1,0 +1,13 @@
+<h1><%= @flower_shop.name %></h1>
+
+<h3>New Flower</h3>
+
+<%= bootstrap_form_with url: "/flower_shops/#{@flower_shop.id}/flowers", method: :post, local: true do |form| %>
+  <%= form.text_field :species %><br/>
+  <%= form.form_group :in_stock, label: { text: "In Stock?" } do %><br/>
+    <%= form.radio_button :in_stock, true, label: "Yes", inline:true %>
+    <%= form.radio_button :in_stock, false, label: "No", inline:true %>
+  <% end %><br/>
+  <%= form.number_field :shelf_life, in: 1..30, label: "Current Shelf Life"%><br/>
+  <%= form.submit 'Create Flower' %>
+<% end %>

@@ -32,4 +32,12 @@ RSpec.describe 'flowers index page' do
     expect(page).to have_content("Shelf Life: 6 Days")
     expect(page).to have_content("In Stock: false")
   end
+
+  it 'has a button to update flower' do
+    visit "/flowers/#{@flower1.id}"
+
+    click_button 'Edit'
+
+    expect(current_path).to eq("/flowers/#{@flower1.id}/edit")
+  end
 end

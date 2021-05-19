@@ -3,3 +3,5 @@
 <p>Total Flowers: <%= @flower_shop.flower_count %></p>
 <p>Shop Rating: <%= @flower_shop.rating %></p>
 <p>Same Day Delivery: <%= @flower_shop.same_day_delivery %></p>
+
+<%= button_to 'Update Shop', "/flower_shops/#{@flower_shop.id}/edit", method: :get %>
