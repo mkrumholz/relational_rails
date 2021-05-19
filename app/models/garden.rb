@@ -15,6 +15,8 @@ class Garden < ApplicationRecord
   end
 
   def self.by_plot_count
-    self.all.sort_by { |garden| garden.plot_count }.reverse
+    self.left_outer_joins(:plots)
+        .group('gardens.id')
+        .order(Arel.sql("count(distinct plots.id) desc"))
   end
 end
