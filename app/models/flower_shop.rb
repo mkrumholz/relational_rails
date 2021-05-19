@@ -1,5 +1,5 @@
 class FlowerShop < ApplicationRecord
-  has_many :flowers
+  has_many :flowers, dependent: :destroy
 
   def flower_count
     flowers.count
