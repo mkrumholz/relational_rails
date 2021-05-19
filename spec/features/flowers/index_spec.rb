@@ -54,4 +54,15 @@ RSpec.describe 'flowers index page' do
 
     expect(current_path).to eq("/flowers/#{@flower1.id}")
   end
+
+  it 'has a button to delete flowers' do
+    visit '/flowers'
+
+    within "div#flower-#{@flower1.id}" do
+      click_button 'Delete Flower'
+    end
+
+    expect(current_path).to eq("/flowers")
+    expect(page).to_not have_content('Rose')
+  end
 end
