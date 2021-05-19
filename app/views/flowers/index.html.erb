@@ -2,10 +2,12 @@
 
 <div class="container-sm  mx-auto mb-5">
   <% @flowers.each do |flower| %>
-    <div class="my-4">
+    <div class="my-4" id="flower-<%= flower.id %>">
       <h3><a href="/flowers/<%= flower.id %>"><%= flower.species %></h3>
       <p>Shelf Life: <%= flower.shelf_life %> Days</p>
       <p>In Stock: <%= flower.in_stock %></p>
+      <%= button_to 'Edit', "/flowers/#{flower.id}/edit", method: :get %>
+      <%= button_to 'Delete Flower', "/flowers/#{flower.id}", method: :delete %>
     </div>
   <% end %>
 </div>

@@ -44,4 +44,15 @@ RSpec.describe 'flower shop flowers index' do
     expect(@flower2.species).to appear_before(@flower1.species)
   end
 
+  it 'has button and form that shows minimum shelf life' do
+    visit "/flower_shops/#{@mikes_flowers.id}/flowers"
+
+    expect(page).to have_content('Sunflower')
+
+    fill_in "Flowers with a shelf life lower than:", with: 4
+    click_on "View flowers by shelf life"
+
+    expect(page).to_not have_content('Sunflower')
+  end
+
 end
