@@ -19,10 +19,19 @@
    padding: 30px;
  }
 
+ h3 {
+   padding: 15px 0px;
+ }
+
 aside {
   float: right;
 }
 
 .card {
   margin: 0 auto;
+}
+
+.timestamps {
+  color: gray;
+  margin: 30px 20px;
 }

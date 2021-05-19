@@ -1,13 +1,15 @@
 <h1><%= @plot.name %></h1>
 
-<p>Currently available? <%= @plot.available_text %></p>
-<p>Sun coverage: <%= @plot.sun_coverage_text %></p>
-<p>Total area: <%= @plot.square_ft %>ft<%= "\u00B2" %></p>
+<div class="container-sm  mx-auto mb-5">
+  <p>Currently available? <%= @plot.available_text %></p>
+  <p>Sun coverage: <%= @plot.sun_coverage_text %></p>
+  <p>Total area: <%= @plot.square_ft %>ft<%= "\u00B2" %></p><br/>
 
-<ul>
-  <li>Plot added: <%= @plot.created_at %></li>
-  <li>Last update:  <%= @plot.updated_at %></li>
-</ul>
+  <%= button_to 'Edit', "/plots/#{@plot.id}/edit", method: :get %><br/>
+  <%= button_to 'Delete plot', "/plots/#{@plot.id}", method: :delete %><br/>
 
-<%= button_to 'Edit', "/plots/#{@plot.id}/edit", method: :get %>
-<%= button_to 'Delete plot', "/plots/#{@plot.id}", method: :delete %>
+  <ul class='timestamps'>
+    <li>Plot added: <%= @plot.created_at %></li>
+    <li>Last update:  <%= @plot.updated_at %></li>
+  </ul>
+</div>
