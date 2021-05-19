@@ -26,6 +26,7 @@ Rails.application.routes.draw do
   post '/flower_shops', to: 'flower_shops#create'
   get '/flower_shops/:id/edit', to: 'flower_shops#edit'
   patch '/flower_shops/:id', to: 'flower_shops#update'
+  delete '/flower_shops/:id', to: 'flower_shops#destroy'
 
 
   get '/flower_shops/:id/flowers', to: 'flower_shop_flowers#index'
@@ -36,4 +37,5 @@ Rails.application.routes.draw do
   get '/flowers/:id', to: 'flowers#show'
   get '/flowers/:id/edit', to: 'flowers#edit'
   patch '/flowers/:id', to: 'flowers#update'
+  delete '/flowers/:id', to: 'flowers#destroy'
 end
