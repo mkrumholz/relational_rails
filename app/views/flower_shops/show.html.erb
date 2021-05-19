@@ -5,3 +5,5 @@
 <p>Same Day Delivery: <%= @flower_shop.same_day_delivery %></p>
 
 <%= button_to 'Update Shop', "/flower_shops/#{@flower_shop.id}/edit", method: :get %>
+
+<%= button_to 'Delete Shop', "/flower_shops/#{@flower_shop.id}", method: :delete %>
