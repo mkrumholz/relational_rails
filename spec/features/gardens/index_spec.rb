@@ -2,21 +2,52 @@ require 'rails_helper'
 
 RSpec.describe 'plot index' do
   before :each do
-    @north_boulder = Garden.create!( name:"North Boulder Community Garden",
-                                    water_on: false,
-                                    water_access_pts: 2,
-                                    created_at: Time.parse('2021-02-01')
-                                  )
-    @south_boulder = Garden.create!( name:"South Boulder Community Garden",
-                                    water_on: false,
-                                    water_access_pts: 3,
-                                    created_at: Time.parse('2021-04-01')
-                                  )
+
     @tuinpark = Garden.create!( name:"Tuinpark Ons Buiten",
-                                    water_on: true,
-                                    water_access_pts: 4,
-                                    created_at: Time.parse('2021-01-01')
-                                  )
+                                water_on: true,
+                                water_access_pts: 4,
+                                created_at: Time.parse('2021-01-01')
+                              )
+    @south_boulder = Garden.create!(  name:"South Boulder Community Garden",
+                                      water_on: false,
+                                      water_access_pts: 3,
+                                      created_at: Time.parse('2021-04-01')
+                                    )
+    @north_boulder = Garden.create!(  name:"North Boulder Community Garden",
+                                      water_on: false,
+                                      water_access_pts: 2,
+                                      created_at: Time.parse('2021-02-01')
+                                    )
+    @hive          =  @north_boulder.plots.create!( name: "The Hive",
+                                                available: false,
+                                                sun_coverage: :partial_shade,
+                                                square_ft: 100
+                                              )
+    @grove         = @north_boulder.plots.create!( name: "The Grove",
+                                                available: true,
+                                                sun_coverage: :full_shade,
+                                                square_ft: 250
+                                              )
+    @park         = @north_boulder.plots.create!( name: "The Park",
+                                                available: true,
+                                                sun_coverage: :full_shade,
+                                                square_ft: 250
+                                              )
+    @kt            = @tuinpark.plots.create!( name: "Kleine Tuinje",
+                                              available: true,
+                                              sun_coverage: :partial_shade,
+                                              square_ft: 88
+                                            )
+    @lothlorien    = @south_boulder.plots.create!( name: "Lothlorien",
+                                              available: false,
+                                              sun_coverage: :partial_sun,
+                                              square_ft: 120
+                                            )
+    @hobbiton    = @south_boulder.plots.create!( name: "Hobbiton",
+                                              available: false,
+                                              sun_coverage: :partial_sun,
+                                              square_ft: 120
+                                            )
   end
 
   it 'shows all of the garden names in order of date created' do
@@ -64,5 +95,17 @@ RSpec.describe 'plot index' do
 
     expect(current_path).to eq("/gardens")
     expect(page).to_not have_content('North Boulder Community Garden')
+  end
+
+  it 'has a button to sort parents by the number of plots (desc)' do
+    visit '/gardens'
+
+    expect(@south_boulder.name).to appear_before(@north_boulder.name)
+    expect(@north_boulder.name).to appear_before(@tuinpark.name)
+
+    click_button 'Sort by # of plots'
+
+    expect(@north_boulder.name).to appear_before(@south_boulder.name)
+    expect(@south_boulder.name).to appear_before(@tuinpark.name)
   end
 end

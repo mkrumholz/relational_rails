@@ -13,4 +13,12 @@ class Plot < ApplicationRecord
   def garden_name
     garden.name
   end
+
+  def self.sort_by_name
+    order(Arel.sql('lower(name)'))
+  end
+
+  def self.larger_than(area)
+    where("square_ft > #{area}")
+  end
 end
