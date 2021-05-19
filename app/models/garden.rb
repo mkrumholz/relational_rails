@@ -11,12 +11,23 @@ class Garden < ApplicationRecord
   end
 
   def plots_by_name
-    plots.order(Arel.sql('lower(name)'))
+    plots.sort_by_name
   end
 
   def self.by_plot_count
-    self.left_outer_joins(:plots)
-        .group('gardens.id')
-        .order(Arel.sql("count(distinct plots.id) desc"))
+    left_outer_joins(:plots)
+    .group('gardens.id')
+    .order(Arel.sql("count(distinct plots.id) desc"))
   end
+
+  def sort_order(params)
+    return plots_by_name if params[:sort] == 'by_name'
+    plots
+  end
+
+  # def min_square_ft(params)
+  #   sorted_plots = sort_order(params)
+  #   return sorted_plots.larger_than(params[:square_ft]) if !params[:square_ft].nil?
+  #   sorted_plots
+  # end
 end
