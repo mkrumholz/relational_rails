@@ -28,6 +28,11 @@ RSpec.describe 'plot index' do
                                                 sun_coverage: :full_shade,
                                                 square_ft: 250
                                               )
+    @park         = @north_boulder.plots.create!( name: "The Park",
+                                                available: true,
+                                                sun_coverage: :full_shade,
+                                                square_ft: 250
+                                              )
     @kt            = @tuinpark.plots.create!( name: "Kleine Tuinje",
                                               available: true,
                                               sun_coverage: :partial_shade,
@@ -38,7 +43,11 @@ RSpec.describe 'plot index' do
                                               sun_coverage: :partial_sun,
                                               square_ft: 120
                                             )
-
+    @hobbiton    = @south_boulder.plots.create!( name: "Hobbiton",
+                                              available: false,
+                                              sun_coverage: :partial_sun,
+                                              square_ft: 120
+                                            )
   end
 
   it 'shows all of the garden names in order of date created' do
