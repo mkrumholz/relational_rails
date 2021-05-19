@@ -4,13 +4,11 @@
     <% @gardens.each do |garden| %>
       <div class="my-4" id="garden-<%= garden.id %>">
         <aside><%= garden.created_at %></aside>
-        <h3><a href="/gardens/<%= garden.id %>"><%= garden.name %></a></h3>
-        <%= button_to 'Edit', "/gardens/#{garden.id}/edit", method: :get %>
+        <h3><a href="/gardens/<%= garden.id %>"><%= garden.name %></a></h3><br/>
+        <%= button_to 'Edit', "/gardens/#{garden.id}/edit", method: :get %><br/>
         <%= button_to 'Delete', "/gardens/#{garden.id}", method: :delete %>
       </div>
     <% end %><br/>
-
   <%= button_to 'New garden',  "/gardens/new", method: :get %><br/>
-
   <%= button_to 'Sort by # of plots',  "/gardens", method: :get, params: {sort: :by_num_plots}, class: "btn btn-secondary" %>
 </div>
