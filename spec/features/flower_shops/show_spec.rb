@@ -45,4 +45,13 @@ RSpec.describe "flower shops show page", type: :feature do
 
     expect(current_path).to eq("/flower_shops/#{@mikes_flowers.id}/edit")
   end
+
+  it 'can delete a flower shop' do
+    visit "/flower_shops/#{@mikes_flowers.id}"
+
+    click_button 'Delete Shop'
+
+    expect(current_path).to eq("/flower_shops")
+    expect(page).to_not have_content("Mikes Flower Shop")
+  end
 end
