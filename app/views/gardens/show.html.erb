@@ -1,16 +1,16 @@
 <h1><%= @garden.name %></h1>
 
-<p>Total plots: <%= @garden.plot_count %></p>
-<p>Water on for the season? <%= @garden.water_on_text %></p>
-<p>Water access points available: <%= @garden.water_access_pts %></p>
+<div class="container-sm  mx-auto mb-5">
+  <p>Total plots: <%= @garden.plot_count %></p>
+  <p>Water on for the season? <%= @garden.water_on_text %></p>
+  <p>Water access points available: <%= @garden.water_access_pts %></p>
 
-<ul>
-  <li>Garden added: <%= @garden.created_at %></li>
-  <li>Last update:  <%= @garden.updated_at %></li>
-</ul>
+  <ul>
+    <li>Garden added: <%= @garden.created_at %></li>
+    <li>Last update:  <%= @garden.updated_at %></li>
+  </ul><br/>
 
-<%= button_to 'Edit', "/gardens/#{@garden.id}/edit", method: :get %>
-
-<%= button_to 'See all plots', "/gardens/#{@garden.id}/plots", method: :get %>
-
-<%= button_to 'Delete garden', "/gardens/#{@garden.id}", method: :delete %>
+  <%= button_to 'Edit', "/gardens/#{@garden.id}/edit", method: :get %><br/>
+  <%= button_to 'See all plots', "/gardens/#{@garden.id}/plots", method: :get %><br/>
+  <%= button_to 'Delete garden', "/gardens/#{@garden.id}", method: :delete %>
+</div>

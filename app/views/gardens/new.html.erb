@@ -1,11 +1,13 @@
 <h1>New Garden</h1>
 
-<%= bootstrap_form_with url: '/gardens', method: :post, local: true do |form| %>
-  <%= form.text_field :name %><br/>
-  <%= form.form_group :water_on, label: { text: "Water on for the season?" } do %><br/>
-    <%= form.radio_button :water_on, true, label: "Yes", inline:true %>
-    <%= form.radio_button :water_on, false, label: "No", inline:true %>
-  <% end %><br/>
-  <%= form.number_field :water_access_pts, in: 1..100, step: 1, label: "Water access points available" %><br/>
-  <%= form.submit 'Create' %>
-<% end %>
+<div class="container-sm  mx-auto mb-5">
+  <%= bootstrap_form_with url: '/gardens', method: :post, local: true do |form| %>
+    <%= form.text_field :name %><br/>
+    <%= form.form_group :water_on, label: { text: "Water on for the season?" } do %><br/>
+      <%= form.radio_button :water_on, true, label: "Yes", inline:true %>
+      <%= form.radio_button :water_on, false, label: "No", inline:true %>
+    <% end %><br/>
+    <%= form.number_field :water_access_pts, in: 1..100, step: 1, label: "Water access points available" %><br/>
+    <%= form.submit 'Create' %>
+  <% end %>
+</div>  
