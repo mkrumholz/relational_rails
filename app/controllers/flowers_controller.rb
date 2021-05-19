@@ -17,6 +17,12 @@ class FlowersController < ApplicationController
     redirect_to "/flowers/#{flower.id}"
   end
 
+  def destroy
+    flowers = Flower.find(params[:id])
+    flowers.destroy
+    redirect_to '/flowers'
+  end
+
   private
     def flower_params
       params.permit(:species, :shelf_life, :in_stock)

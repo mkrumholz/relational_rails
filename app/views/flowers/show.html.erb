@@ -4,3 +4,4 @@
 <p>In Stock: <%= @flower.in_stock %></p>
 
 <%= button_to 'Edit', "/flowers/#{@flower.id}/edit", method: :get %>
+<%= button_to 'Delete Flower', "/flowers/#{@flower.id}", method: :delete %>
